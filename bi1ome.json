@@ -1,0 +1,32 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.5/schema.json",
+  "files": {
+    "ignoreUnknown": false,
+    "ignore": ["node_modules", ".git", ".husky", ".env*", "dist"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "noVar": "off"
+      },
+      "correctness": {
+        "noUnusedVariables": "error",
+        "noUnusedImports": "error"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double"
+    }
+  }
+}

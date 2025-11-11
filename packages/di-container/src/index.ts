@@ -33,40 +33,37 @@ export class DIContainer {
   }
 }
 
-export const getInjector = (container: DIContainer) => <T>(key: string): T => {
-  console.log(`Injecting dependency with key: ${key}`);
-  return container.get<T>(key);
-};
+export const getInjector =
+  (container: DIContainer) =>
+  <T>(key: string): T => {
+    console.log(`Injecting dependency with key: ${key}`);
+    return container.get<T>(key);
+  };
 
-export const getInjectable = (container: DIContainer) => <T>(
-  key: string,
-  factory: () => T,
-  options?: InjectableOptions
-) => {
-  console.log(`Registering injectable with key: ${key}`);
-  if (options?.singleton) {
-    let instance: T | undefined;
+export const getInjectable =
+  (container: DIContainer) =>
+  <T>(key: string, factory: () => T, options?: InjectableOptions) => {
+    console.log(`Registering injectable with key: ${key}`);
+    if (options?.singleton) {
+      let instance: T | undefined;
 
-    container.register(key, () => {
-      if (instance === undefined) {
-        instance = factory();
-      }
-      return instance;
-    });
-  } else {
-    container.register(key, factory);
-  }
-};
+      container.register(key, () => {
+        if (instance === undefined) {
+          instance = factory();
+        }
+        return instance;
+      });
+    } else {
+      container.register(key, factory);
+    }
+  };
 
 export const getInjectableDecorator = (container: DIContainer) => {
   const injectable = getInjectable(container);
 
   console.log("Injectable decorator initialized");
 
-  return <T = any>(
-    key: string,
-    options?: InjectableOptions
-  ) => {
+  return <T = any>(key: string, options?: InjectableOptions) => {
     return (value: T | (() => T)) => {
       injectable(key, () => value, options);
     };

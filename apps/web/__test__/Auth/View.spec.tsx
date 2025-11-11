@@ -1,8 +1,7 @@
-import React from "react";
 import { expect, test } from "vitest";
-import { testUtils } from "../Utilities";
 import { AuthView } from "../../src/Auth/View";
 import { container } from "../../src/di";
+import { testUtils } from "../Utilities";
 
 test("AuthView", async () => {
   var mockAuthViewModel = () => ({

@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
-import { bootstrap } from "@/Core/Bootstrap.tsx";
 import { App } from "@/Core/App";
+import { bootstrap } from "@/Core/Bootstrap.tsx";
 import { CrashView } from "@/Modules/Crash/View";
 
 var appRootElement = document.getElementById("root")!;

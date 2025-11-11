@@ -1,3 +1,5 @@
+# Common
+
 package:
 	npx lerna create $(name) --yes --private
 
@@ -12,6 +14,17 @@ build:
 
 test:
 	pnpm -r test
+
+lint:
+	pnpm lint
+
+lint-fix:
+	pnpm lint:fix
+
+format:
+	pnpm format
+
+# Web
 
 run-web-dev:
 	pnpm --filter @react-mvvm/web dev

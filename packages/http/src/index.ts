@@ -1,4 +1,4 @@
-import { AxiosInstance, AxiosRequestConfig } from "axios";
+import type { AxiosInstance, AxiosRequestConfig } from "axios";
 
 type HttpRequestConfig = {
   baseURL?: string;

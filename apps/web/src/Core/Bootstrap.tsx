@@ -5,21 +5,21 @@ import { envSchema } from "@/Core/Types/Env";
 
 export var bootstrap =
   (render: (children: React.ReactNode) => any | Promise<any>) =>
-    (App: React.FC, Error: React.FC<{ error: unknown }> | null) =>
-      (env_: unknown) => {
-        try {
-          var env = createConfig(envSchema.parse(env_));
+  (App: React.FC, Err: React.FC<{ error: unknown }> | null) =>
+  (env_: unknown) => {
+    try {
+      var env = createConfig(envSchema.parse(env_));
 
-          injectable("Config", () => env, {
-            singleton: true,
-          });
+      injectable("Config", () => env, {
+        singleton: true,
+      });
 
-          return render(<App />);
-        } catch (error) {
-          console.error("Error during application initialization:", error);
-          if (Error) {
-            return render(<Error error={error} />);
-          }
-          throw error;
-        }
-      };
+      return render(<App />);
+    } catch (error) {
+      console.error("Error during application initialization:", error);
+      if (Err) {
+        return render(<Err error={error} />);
+      }
+      throw error;
+    }
+  };
