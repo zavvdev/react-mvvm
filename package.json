@@ -16,7 +16,7 @@
   "scripts": {
     "build": "pnpm -r run build",
     "lint": "pnpm exec biome check .",
-    "lint:fix": "pnpm exec biome lint --write",
+    "lint:fix": "pnpm exec biome lint --write && pnpm exec biome check --write",
     "format": "pnpm exec biome format --write",
     "prepare": "husky"
   }

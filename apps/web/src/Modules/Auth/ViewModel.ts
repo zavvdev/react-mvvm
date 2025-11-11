@@ -1,8 +1,7 @@
 import type { Config } from "@/Core/Types/Config";
 import { inject, injectable } from "@/di";
 
-export var authViewModel = () => {
-  console.log("call authViewModel");
+var authViewModel = () => {
   var config = inject<Config>("Config");
 
   var clickLogin = () => {

@@ -7,10 +7,6 @@ export interface InjectableOptions {
 export class DIContainer {
   private registry = new Map<string, Provider>();
 
-  constructor() {
-    console.log("DIContainer initialized");
-  }
-
   register<T>(key: string, provider: Provider<T>) {
     if (this.registry.has(key)) {
       throw new Error(`Dependency with key "${key}" is already registered`);
@@ -36,14 +32,12 @@ export class DIContainer {
 export const getInjector =
   (container: DIContainer) =>
   <T>(key: string): T => {
-    console.log(`Injecting dependency with key: ${key}`);
     return container.get<T>(key);
   };
 
 export const getInjectable =
   (container: DIContainer) =>
   <T>(key: string, factory: () => T, options?: InjectableOptions) => {
-    console.log(`Registering injectable with key: ${key}`);
     if (options?.singleton) {
       let instance: T | undefined;
 
@@ -60,8 +54,6 @@ export const getInjectable =
 
 export const getInjectableDecorator = (container: DIContainer) => {
   const injectable = getInjectable(container);
-
-  console.log("Injectable decorator initialized");
 
   return <T = any>(key: string, options?: InjectableOptions) => {
     return (value: T | (() => T)) => {

@@ -3,7 +3,7 @@ import { AuthView } from "../../src/Auth/View";
 import { container } from "../../src/di";
 import { testUtils } from "../Utilities";
 
-test("AuthView", async () => {
+test("AuthView", () => {
   var mockAuthViewModel = () => ({
     clickLogin: () => {
       console.log("TEST -- Login clicked");
@@ -15,9 +15,9 @@ test("AuthView", async () => {
 
   container.override("AuthViewModel", () => mockAuthViewModel);
 
-  var { getByText } = await testUtils.render(<AuthView />);
-
-  await expect.element(getByText("Auth View Component")).toBeInTheDocument();
+  return testUtils.render(<AuthView />).then(({ getByText }) => {
+    return expect.element(getByText("Auth View Component")).toBeInTheDocument();
+  });
 });
 
 test("some", () => {
