@@ -1,0 +1,16 @@
+button {
+  cursor: pointer;
+  border: none;
+  background-color: var(--button-background);
+  color: var(--button-text-color);
+  padding: var(--button-padding);
+  border-radius: var(--border-radius);
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}

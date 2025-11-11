@@ -1,0 +1,17 @@
+{
+  "name": "react-mvvm",
+  "private": true,
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.18.3",
+  "devDependencies": {
+    "lerna": "^9.0.0",
+    "typescript": "^5.9.3"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r run build"
+  }
+}

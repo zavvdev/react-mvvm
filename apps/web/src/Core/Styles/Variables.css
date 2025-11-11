@@ -1,0 +1,26 @@
+:root {
+  --border-radius: 4px;
+  --background-color: #ffffff;
+  
+  --text-color: #000000;
+  
+  --link-color: #1a0dab;
+  
+  --button-background: #1a73e8;
+  --button-text-color: #ffffff;
+  --button-padding: 0.5rem 1rem;
+
+  --input-padding: 0.5rem 1rem;
+  --input-border-color: #ccc;
+
+  & body.dark {
+    --background-color: #0e161c;
+    
+    --text-color: #ffffff;
+    
+    --link-color: #8ab4f8;
+    
+    --button-background: #1a73e8;
+    --button-text-color: #ffffff;
+  }
+}
