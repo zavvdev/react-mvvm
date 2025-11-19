@@ -1,6 +1,6 @@
 import type { AuthService } from "@react-mvvm/auth-service";
 import { inject } from "@react-mvvm/di-container";
-import type { Config } from "@/Core/Types/Config";
+import type { Config } from "@/Core/Types";
 
 export var authViewModel = () => {
   var config = inject<Config>("config");

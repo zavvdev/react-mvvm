@@ -1,7 +1,15 @@
-import type { Config } from "@/Core/Types/Config";
-import type { Env } from "@/Core/Types/Env";
+import type { Config, Env } from "@/Core/Types";
 
 export var createConfig = (env: Env): Config => ({
   apiUrl: env.VITE_API_URL,
+
   authTokenName: "_t",
+
+  publicRoutes: {
+    auth: () => "/auth",
+  },
+
+  privateRoutes: {
+    dashboard: () => "/dashboard",
+  },
 });

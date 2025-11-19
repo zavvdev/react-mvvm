@@ -26,8 +26,8 @@ format:
 
 # Web
 
-run-web-dev:
+web-dev:
 	pnpm --filter @react-mvvm/web dev
 
-preview-web:
+web-preview:
 	pnpm --filter @react-mvvm/web preview

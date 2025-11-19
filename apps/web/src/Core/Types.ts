@@ -1,0 +1,28 @@
+import { z as t } from "zod";
+
+export var envSchema = t.object({
+  VITE_API_URL: t.url(),
+});
+
+export type Env = t.infer<typeof envSchema>;
+
+export interface Config {
+  apiUrl: string;
+
+  authTokenName: string;
+
+  publicRoutes: {
+    auth: () => string;
+  };
+
+  privateRoutes: {
+    dashboard: () => string;
+  };
+}
+
+export interface AppRoute {
+  index?: boolean;
+  path?: string;
+  private?: boolean;
+  element: React.ReactElement;
+}

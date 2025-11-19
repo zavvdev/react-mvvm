@@ -1,8 +1,7 @@
 import { type AnyResponse, AUTH_HEADER, MESSAGES } from "@react-mvvm/api";
 import type { TokenStorage } from "@react-mvvm/auth-service";
 import type { Failure, Request } from "@react-mvvm/http";
-import { PUBLIC_ROUTES } from "@/Core/Routes";
-import type { Config } from "@/Core/Types/Config";
+import type { Config } from "@/Core/Types";
 
 export var createAuthTokenStorage = (config: Config): TokenStorage => ({
   get: () => {
@@ -29,9 +28,9 @@ export var createAuthRequestInterceptor =
   };
 
 export var createAuthResponseErrorInterceptor =
-  () => (failure: Failure<AnyResponse>) => {
+  (config: Config) => (failure: Failure<AnyResponse>) => {
     if (failure.response?.data?.message === MESSAGES.unauthorized) {
-      window.location.href = PUBLIC_ROUTES.auth();
+      window.location.href = config.publicRoutes.auth();
     }
     return Promise.reject(failure);
   };

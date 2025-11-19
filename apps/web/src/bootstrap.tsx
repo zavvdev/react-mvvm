@@ -2,14 +2,13 @@ import { type Api, createApi } from "@react-mvvm/api";
 import { AuthService } from "@react-mvvm/auth-service";
 import { asFunction, asValue, injectable } from "@react-mvvm/di-container";
 import { createHttp } from "@react-mvvm/http";
-import "@/Core/Styles/Main.css";
 import {
   createAuthRequestInterceptor,
   createAuthResponseErrorInterceptor,
   createAuthTokenStorage,
 } from "@/Core/Auth";
 import { createConfig } from "@/Core/Config";
-import { envSchema } from "@/Core/Types/Env";
+import { envSchema } from "@/Core/Types";
 import { authViewModel } from "@/Modules/Auth/ViewModel";
 
 var register = (env: unknown) => {
@@ -19,7 +18,7 @@ var register = (env: unknown) => {
   var http = createHttp({
     baseUrl: config.apiUrl,
     onRequest: createAuthRequestInterceptor(tokenStorage),
-    onResponseError: createAuthResponseErrorInterceptor(),
+    onResponseError: createAuthResponseErrorInterceptor(config),
   });
 
   var api = createApi(http);
