@@ -1,10 +1,10 @@
+import type { Auth } from "@react-mvvm/auth";
+import { inject } from "@react-mvvm/di";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
-import type { AuthService } from "@react-mvvm/auth-service";
-import { inject } from "@react-mvvm/di-container";
 import type { AppRoute, Config } from "@/Core/Types";
-import { AuthView } from "@/Modules/Auth/View";
-import { DashboardView } from "@/Modules/Dashboard/View";
-import { NotFoundView } from "@/Modules/NotFound/View";
+import { AuthView } from "@/Modules/Auth";
+import { DashboardView } from "@/Modules/Dashboard";
+import { NotFoundView } from "@/Modules/NotFound";
 
 var routes = ({ privateRoutes, publicRoutes }: Config): Array<AppRoute> => [
   {
@@ -30,26 +30,28 @@ var routes = ({ privateRoutes, publicRoutes }: Config): Array<AppRoute> => [
   },
 ];
 
-export var Router = () => {
-  var authService = inject<AuthService>("authService");
+var AuthenticatedRoute = ({ route }: { route: AppRoute }) => {
+  var auth = inject<Auth>("auth");
   var config = inject<Config>("config");
 
-  var renderElement = (route: AppRoute) => {
-    if (route.private && !authService.isLoggedIn()) {
-      return <Navigate to={config.publicRoutes.auth()} />;
-    }
-    return route.element;
-  };
+  if (route.private && !auth.isLoggedIn()) {
+    return <Navigate to={config.publicRoutes.auth()} />;
+  }
+  return route.element;
+};
+
+export var Router = () => {
+  var config = inject<Config>("config");
 
   return (
     <BrowserRouter>
       <Routes>
-        {routes(config).map((route, index) => (
+        {routes(config).map((route) => (
           <Route
-            key={index}
+            key={route.path}
             index={route.index}
             path={route.path}
-            element={renderElement(route)}
+            element={<AuthenticatedRoute route={route} />}
           />
         ))}
       </Routes>

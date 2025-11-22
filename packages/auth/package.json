@@ -1,5 +1,5 @@
 {
-  "name": "@react-mvvm/auth-service",
+  "name": "@react-mvvm/auth",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

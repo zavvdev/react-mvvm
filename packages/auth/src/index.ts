@@ -3,7 +3,7 @@ import type { LoginCredentials, TokenStorage } from "./types";
 
 export { LoginCredentials, TokenStorage } from "./types";
 
-export class AuthService {
+export class Auth {
   private api: Api;
   private tokenStorage: TokenStorage;
 

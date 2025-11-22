@@ -1,8 +1,11 @@
 {
   "files": [],
   "references": [
-    { "path": "packages/di-container" },
+    { "path": "packages/di" },
     { "path": "packages/http" },
+    { "path": "packages/auth" },
+    { "path": "packages/api" },
+    { "path": "packages/uikit-web" },
     { "path": "apps/web" }
   ],
   "compilerOptions": {

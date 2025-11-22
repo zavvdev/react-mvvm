@@ -1,5 +1,5 @@
-import { inject } from "@react-mvvm/di-container";
-import type { AuthViewModel } from "./ViewModel";
+import { inject } from "@react-mvvm/di";
+import type { AuthViewModel } from "./AuthViewModel";
 
 export var AuthView = () => {
   var { clickLogin, clickRegister, clickGetLoggedIn } =

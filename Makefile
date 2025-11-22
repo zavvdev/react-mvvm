@@ -21,6 +21,9 @@ lint:
 lint-fix:
 	pnpm lint:fix
 
+analyze-deps:
+	knip
+
 format:
 	pnpm format
 

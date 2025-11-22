@@ -1,4 +1,4 @@
-import styles from "./Styles.module.css";
+import styles from "./CrashStyles.module.css";
 
 interface Props {
   error: unknown;

@@ -1,7 +1,7 @@
-@import "Variables.css";
-@import "Button.css";
-@import "Link.css";
-@import "Input.css";
+@import "variables.css";
+@import "button.css";
+@import "link.css";
+@import "input.css";
 
 body {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
