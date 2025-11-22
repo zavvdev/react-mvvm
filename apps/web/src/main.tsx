@@ -1,5 +1,6 @@
 import { createRoot } from "react-dom/client";
-import { ApplicationView, ErrorView } from "@/Application/ApplicationView";
+import { ApplicationView } from "@/Application/ApplicationView";
+import { ErrorView } from "@/Application/ErrorView";
 import { bootstrap } from "@/Bootstrap";
 
 var appRootElement = document.getElementById("root")!;
