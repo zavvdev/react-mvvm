@@ -1,19 +1,16 @@
-import { registerApplication } from "@/Application/Registration";
-import { registerCore } from "@/Core/Registration";
+import { type CoreDependencies, registerCore } from "@/Core/Bootstrap";
 
 type RenderFunction = (children: React.ReactNode) => any | Promise<any>;
 
-type Renderable = React.FC;
+type Application = React.FC<{ dependencies: CoreDependencies }>;
 type Error = React.FC<{ error: unknown }> | null;
 
 export var bootstrap =
   (render: RenderFunction) =>
-  (Application: Renderable, Err: Error) =>
+  (App: Application, Err: Error) =>
   (env: unknown) => {
     try {
-      registerCore(env);
-      registerApplication();
-      return render(<Application />);
+      return render(<App dependencies={registerCore(env)} />);
     } catch (error) {
       console.error("Error during application initialization:", error);
       if (Err) {

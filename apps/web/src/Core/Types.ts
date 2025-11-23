@@ -19,10 +19,3 @@ export interface Config {
     dashboard: () => string;
   };
 }
-
-export interface AppRoute {
-  index?: boolean;
-  path?: string;
-  private?: boolean;
-  element: React.ReactElement;
-}

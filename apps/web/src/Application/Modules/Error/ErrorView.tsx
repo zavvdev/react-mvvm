@@ -1,10 +1,10 @@
-import styles from "./CrashStyles.module.css";
+import styles from "./ErrorStyles.module.css";
 
-interface Props {
+interface ErrorViewProps {
   error: unknown;
 }
 
-export var CrashView = ({ error }: Props) => (
+export var ErrorView = ({ error }: ErrorViewProps) => (
   <div className={styles.root}>
     <h1>Initialization Error</h1>
     <pre>{error instanceof Error ? error.message : String(error)}</pre>

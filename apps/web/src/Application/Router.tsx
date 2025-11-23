@@ -1,10 +1,16 @@
-import type { Auth } from "@react-mvvm/auth";
-import { inject } from "@react-mvvm/di";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
-import type { AppRoute, Config } from "@/Core/Types";
-import { AuthView } from "@/Modules/Auth";
-import { DashboardView } from "@/Modules/Dashboard";
-import { NotFoundView } from "@/Modules/NotFound";
+import { withInjections } from "@/Application/DependencyContext";
+import { AuthView } from "@/Application/Modules/Auth";
+import { DashboardView } from "@/Application/Modules/Dashboard";
+import { NotFoundView } from "@/Application/Modules/NotFound";
+import type { Config } from "@/Core/Types";
+
+interface AppRoute {
+  index?: boolean;
+  path?: string;
+  private?: boolean;
+  element: React.ReactElement;
+}
 
 var routes = ({ privateRoutes, publicRoutes }: Config): Array<AppRoute> => [
   {
@@ -30,19 +36,22 @@ var routes = ({ privateRoutes, publicRoutes }: Config): Array<AppRoute> => [
   },
 ];
 
-var AuthenticatedRoute = ({ route }: { route: AppRoute }) => {
-  var auth = inject<Auth>("auth");
-  var config = inject<Config>("config");
-
+var AuthenticatedRoute = withInjections<
+  "config" | "auth",
+  {
+    route: AppRoute;
+  }
+>(
+  "config",
+  "auth",
+)(({ config, auth, route }) => {
   if (route.private && !auth.isLoggedIn()) {
     return <Navigate to={config.publicRoutes.auth()} />;
   }
   return route.element;
-};
+});
 
-export var Router = () => {
-  var config = inject<Config>("config");
-
+export var Router = withInjections<"config">("config")(({ config }) => {
   return (
     <BrowserRouter>
       <Routes>
@@ -57,4 +66,4 @@ export var Router = () => {
       </Routes>
     </BrowserRouter>
   );
-};
+});
