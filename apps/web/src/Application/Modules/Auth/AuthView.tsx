@@ -1,7 +1,8 @@
-import { authViewModel } from "./AuthViewModel";
+import { withVM } from "@/Application/DependencyContext.tsx";
+import { authViewModel } from "./AuthViewModel.tsx";
 
-export var AuthView = () => {
-  var { clickLogin, clickRegister, clickGetLoggedIn } = authViewModel();
+export var AuthView = withVM(() => authViewModel)(({ viewModel }) => {
+  var { clickLogin, clickRegister, clickGetLoggedIn } = viewModel();
 
   return (
     <div>
@@ -18,4 +19,4 @@ export var AuthView = () => {
       <input placeholder="Password" />
     </div>
   );
-};
+});

@@ -1,9 +1,10 @@
 import { createContext, createElement, useContext } from "react";
 
+type Props = Record<string, unknown>;
+type DefaultProps = Record<string, never>;
+
 export var createDependencyContext = <D>() => {
   type DKey = keyof D;
-  type Props = Record<string, unknown>;
-  type DefaultProps = Record<string, never>;
 
   var DependenciesContext = createContext<D | null>(null);
 
@@ -61,3 +62,14 @@ export var createDependencyContext = <D>() => {
     withInjections,
   };
 };
+
+export var createWithInstance =
+  <K extends string>(propName: K) =>
+  <I, P extends Props = DefaultProps>(factory: () => I) =>
+  (Component: React.FC<P & Record<K, I>>) =>
+  (props: P) => {
+    return createElement(Component, {
+      ...props,
+      [propName]: factory(),
+    } as P & Record<K, I>);
+  };
