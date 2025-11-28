@@ -4,7 +4,6 @@
   "ignoreDependencies": [
     "vitest-browser-react",
     "lerna",
-    "@types/react",
     "@types/react-dom",
     "globals"
   ]
