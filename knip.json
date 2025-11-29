@@ -1,5 +1,5 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "ignore": ["apps/web/__test__/Utilities.tsx"],
-  "ignoreDependencies": ["vitest-browser-react", "lerna", "globals"]
+  "ignoreDependencies": ["vitest-browser-react", "lerna", "globals", "rxjs"]
 }

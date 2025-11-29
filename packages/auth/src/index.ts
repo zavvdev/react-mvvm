@@ -1,4 +1,5 @@
 import type { Api } from "@react-mvvm/api";
+import { tap } from "rxjs";
 import type { LoginCredentials, TokenStorage } from "./types";
 
 export { LoginCredentials, TokenStorage } from "./types";
@@ -12,16 +13,20 @@ export class Auth {
     this.tokenStorage = tokenStorage;
   }
 
-  login({ username, password }: LoginCredentials) {
-    return this.api.auth.login({ username, password }).then((response) => {
-      this.tokenStorage.set(response.data.token);
-    });
+  login$({ username, password }: LoginCredentials) {
+    return this.api.auth.login$({ username, password }).pipe(
+      tap((response) => {
+        this.tokenStorage.set(response.data.token);
+      }),
+    );
   }
 
-  logout() {
-    return this.api.auth.logout().then(() => {
-      this.tokenStorage.clear();
-    });
+  logout$() {
+    return this.api.auth.logout$().pipe(
+      tap(() => {
+        this.tokenStorage.clear();
+      }),
+    );
   }
 
   isLoggedIn() {

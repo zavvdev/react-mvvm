@@ -1,4 +1,5 @@
 import type { Http } from "@react-mvvm/http";
+import { from, mergeMap } from "rxjs";
 import type { AnyResponse } from "../schemas";
 import {
   type LoginDto,
@@ -8,18 +9,20 @@ import {
 } from "./schemas";
 
 export var createAuthApi = (http: Http) => ({
-  register: (dto: RegisterDto["Request"]) =>
-    registerDto.request
-      .parseAsync(dto)
-      .then((validDto) => http.post<AnyResponse>("/auth/register", validDto)),
+  register$: (dto: RegisterDto["Request"]) =>
+    from(registerDto.request.parseAsync(dto)).pipe(
+      mergeMap((validDto) =>
+        http.post$<AnyResponse>("/auth/register", validDto),
+      ),
+    ),
 
-  login: (dto: LoginDto["Request"]) =>
-    loginDto.request
-      .parseAsync(dto)
-      .then((validDto) =>
-        http.post<LoginDto["Response"]>("/auth/login", validDto),
-      )
-      .then((response) => loginDto.response.parseAsync(response.data)),
+  login$: (dto: LoginDto["Request"]) =>
+    from(loginDto.request.parseAsync(dto)).pipe(
+      mergeMap((validDto) =>
+        http.post$<LoginDto["Response"]>("/auth/login", validDto),
+      ),
+      mergeMap((response) => from(loginDto.response.parseAsync(response))),
+    ),
 
-  logout: () => http.delete<AnyResponse>("/auth/logout"),
+  logout$: () => http.delete$<AnyResponse>("/auth/logout"),
 });

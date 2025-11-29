@@ -6,6 +6,7 @@ import type {
   InternalAxiosRequestConfig,
 } from "axios";
 import axios from "axios";
+import { defer, from, map, type Observable } from "rxjs";
 import type { Failure, Headers, Request, Response } from "./types";
 
 export { Failure, Headers, Request, Response } from "./types";
@@ -30,46 +31,56 @@ export class Http {
     return res.data;
   }
 
-  public get<T = unknown>(url: string, config?: Request): Promise<T> {
-    return this.repo
-      .get<T>(url, this.reqConfigAdapter(config))
-      .then(this.resAdapter);
+  public get$<T = unknown>(url: string, config?: Request): Observable<T> {
+    return defer(() =>
+      from(this.repo.get<T>(url, this.reqConfigAdapter(config))).pipe(
+        map(this.resAdapter.bind(this)),
+      ),
+    );
   }
 
-  public post<T = unknown, R = unknown>(
+  public post$<T = unknown, R = unknown>(
     url: string,
     data?: R,
     config?: Request,
-  ): Promise<T> {
-    return this.repo
-      .post<T>(url, data, this.reqConfigAdapter(config))
-      .then(this.resAdapter);
+  ): Observable<T> {
+    return defer(() =>
+      from(this.repo.post<T>(url, data, this.reqConfigAdapter(config))).pipe(
+        map(this.resAdapter.bind(this)),
+      ),
+    );
   }
 
-  public put<T = unknown, R = unknown>(
+  public put$<T = unknown, R = unknown>(
     url: string,
     data?: R,
     config?: Request,
-  ): Promise<T> {
-    return this.repo
-      .put<T>(url, data, this.reqConfigAdapter(config))
-      .then(this.resAdapter);
+  ): Observable<T> {
+    return defer(() =>
+      from(this.repo.put<T>(url, data, this.reqConfigAdapter(config))).pipe(
+        map(this.resAdapter.bind(this)),
+      ),
+    );
   }
 
-  public patch<T = unknown, R = unknown>(
+  public patch$<T = unknown, R = unknown>(
     url: string,
     data?: R,
     config?: Request,
-  ): Promise<T> {
-    return this.repo
-      .patch<T>(url, data, this.reqConfigAdapter(config))
-      .then(this.resAdapter);
+  ): Observable<T> {
+    return defer(() =>
+      from(this.repo.patch<T>(url, data, this.reqConfigAdapter(config))).pipe(
+        map(this.resAdapter.bind(this)),
+      ),
+    );
   }
 
-  public delete<T = unknown>(url: string, config?: Request): Promise<T> {
-    return this.repo
-      .delete<T>(url, this.reqConfigAdapter(config))
-      .then(this.resAdapter);
+  public delete$<T = unknown>(url: string, config?: Request): Observable<T> {
+    return defer(() =>
+      from(this.repo.delete<T>(url, this.reqConfigAdapter(config))).pipe(
+        map(this.resAdapter.bind(this)),
+      ),
+    );
   }
 }
 
