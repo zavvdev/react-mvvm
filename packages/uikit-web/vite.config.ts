@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+/// <reference types="vitest/config" />
 
 import path, { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -18,6 +19,7 @@ export default defineConfig({
     }),
     libInjectCss(),
     dts({
+      exclude: ["src/__test__", "**/*.test.tsx", "**/*.spec.tsx"],
       tsconfigPath: "tsconfig.app.json",
     }),
   ],
@@ -54,5 +56,17 @@ export default defineConfig({
         },
       },
     },
+  },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/__test__/setup.ts",
+    // you might want to disable it, if you don't have tests that rely on CSS
+    // since parsing CSS is slow
+    css: true,
+    // coverage: {
+    //   include: [...],
+    //   exclude: [...],
+    // },
   },
 });
