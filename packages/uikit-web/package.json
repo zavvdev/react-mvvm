@@ -7,6 +7,15 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    "./styles.css": {
+      "import": "./dist/assets/main.css"
+    },
+    "./templates/main-template": {
+      "import": "./dist/templates/main-template/index.js",
+      "types": "./dist/templates/main-template/index.d.ts"
+    }
+  },
   "scripts": {
     "build": "tsc -b && vite build"
   },

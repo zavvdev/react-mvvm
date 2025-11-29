@@ -1,5 +1,5 @@
-import "@react-mvvm/uikit-web/dist/assets/main.css";
-import { MainTemplate } from "@react-mvvm/uikit-web/dist/main";
+import "@react-mvvm/uikit-web/styles.css";
+import { MainTemplate } from "@react-mvvm/uikit-web/templates/main-template";
 import { DependenciesContext } from "@/Application/DependencyContext";
 import { Router } from "@/Application/Router";
 import type { CoreDependencies } from "@/Core/Bootstrap";
