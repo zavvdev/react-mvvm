@@ -9,6 +9,9 @@ link-package:
 install-deps:
 	pnpm install
 
+install-deps-fresh:
+	pnpm install --force
+
 build:
 	pnpm -r run build
 

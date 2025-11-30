@@ -35,13 +35,13 @@ export default defineConfig({
           (file: string) => {
             // This remove `src/` as well as the file extension from each
             // file, so e.g. src/nested/foo.js becomes nested/foo
-            const entryName = path.relative(
+            var entryName = path.relative(
               "src",
               file.slice(0, file.length - path.extname(file).length),
             );
             // This expands the relative paths to absolute paths, so e.g.
             // src/nested/foo becomes /project/src/nested/foo.js
-            const entryUrl = fileURLToPath(new URL(file, import.meta.url));
+            var entryUrl = fileURLToPath(new URL(file, import.meta.url));
             return [entryName, entryUrl];
           },
         ),
