@@ -3,7 +3,7 @@ button {
   border: none;
   background-color: var(--button-background);
   color: var(--button-text-color);
-  padding: var(--button-padding);
+  padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
 
   &:hover {

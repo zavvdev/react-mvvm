@@ -15,6 +15,9 @@ install-deps-fresh:
 build:
 	pnpm -r run build
 
+build-one:
+	lerna run build --scope $(name)
+
 test:
 	pnpm -r test
 

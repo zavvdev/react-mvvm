@@ -8,10 +8,10 @@
 
   --button-background: #1a73e8;
   --button-text-color: #ffffff;
-  --button-padding: 0.5rem 1rem;
 
   --input-padding: 0.5rem 1rem;
   --input-border-color: #ccc;
+  --input-background: #ffffff;
 
   & body.dark {
     --background-color: #0e161c;
@@ -20,7 +20,9 @@
 
     --link-color: #8ab4f8;
 
-    --button-background: #1a73e8;
-    --button-text-color: #ffffff;
+    --button-background: #1b4379;
+
+    --input-background: #253139;
+    --input-border-color: #6c6c6c;
   }
 }
