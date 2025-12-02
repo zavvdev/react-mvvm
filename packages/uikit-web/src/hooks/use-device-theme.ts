@@ -15,7 +15,7 @@ var getAppTheme = () =>
     : THEME.light;
 
 export var useDeviceTheme = () => {
-  var [theme, setTheme] = useState(getAppTheme);
+  var { 0: theme, 1: setTheme } = useState(getAppTheme);
 
   useLayoutEffect(() => {
     var lcTheme = localStorage.getItem(LC_KEY) as Theme;
@@ -30,7 +30,7 @@ export var useDeviceTheme = () => {
 
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
-  }, []);
+  }, [setTheme]);
 
   useLayoutEffect(() => {
     document.body.setAttribute("class", theme);

@@ -5,6 +5,9 @@ button {
   color: var(--button-text-color);
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     opacity: 0.9;

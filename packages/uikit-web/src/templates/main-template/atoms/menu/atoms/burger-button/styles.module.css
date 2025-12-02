@@ -1,0 +1,22 @@
+.root {
+  --color: #658ca9;
+
+  background-color: transparent;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+
+  span {
+    background-color: var(--color);
+    height: 2px;
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+  }
+}
+
+:global(body.dark) .root {
+  --color: #7e92a1;
+}

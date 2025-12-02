@@ -1,31 +1,19 @@
 import type { PropsWithChildren } from "react";
-import { useDeviceTheme } from "../../hooks/use-device-theme";
+import { Menu } from "./atoms/menu";
+import { ThemeToggle } from "./atoms/theme-toggle";
 import styles from "./styles.module.css";
+import type { MenuItem } from "./types";
 
 interface Props extends PropsWithChildren {
-  footer?: React.ReactNode;
+  menu: Array<MenuItem>;
 }
 
-export var MainTemplate = ({ children, footer }: Props) => {
-  var theme = useDeviceTheme();
-
-  return (
-    <div className={styles.root}>
-      {children}
-      <div className={styles.footer}>
-        {!!footer && <div>{footer}</div>}
-        <div>
-          <button
-            className={styles.themeSwitch}
-            type="button"
-            onClick={() => {
-              theme.onChange(theme.value === "dark" ? "light" : "dark");
-            }}
-          >
-            {theme.value === "dark" ? "🌙" : "☀️"}
-          </button>
-        </div>
-      </div>
+export var MainTemplate = ({ children, menu }: Props) => (
+  <div className={styles.root}>
+    {children}
+    <div className={styles.footer}>
+      <ThemeToggle />
+      <Menu items={menu} />
     </div>
-  );
-};
+  </div>
+);

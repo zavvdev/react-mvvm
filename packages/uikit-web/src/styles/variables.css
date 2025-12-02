@@ -12,6 +12,7 @@
   --input-padding: 0.5rem 1rem;
   --input-border-color: #ccc;
   --input-background: #ffffff;
+  --input-text-color: #000000;
 
   & body.dark {
     --background-color: #0e161c;
@@ -24,5 +25,6 @@
 
     --input-background: #253139;
     --input-border-color: #6c6c6c;
+    --input-text-color: #fff;
   }
 }

@@ -1,11 +1,13 @@
 .root {
   --footer-bg: #dce8f7;
-  --theme-switch-bg: #fff;
 
   position: relative;
   height: 100vh;
   padding: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
   background-color: var(--background-color);
+  box-sizing: border-box;
 
   .footer {
     position: fixed;
@@ -16,21 +18,18 @@
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     background-color: var(--footer-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    .themeSwitch {
-      width: 30px;
-      height: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      background: var(--theme-switch-bg);
-      box-shadow: 0 0 4px 3px var(--theme-switch-bg);
+    @media screen and (min-width: 1400px) {
+      width: 1400px;
+      left: unset;
+      right: unset;
     }
   }
 }
 
 :global(body.dark) .root {
   --footer-bg: #2f3a48;
-  --theme-switch-bg: #0d161c;
 }

@@ -14,6 +14,9 @@
     "./templates/main-template": {
       "import": "./dist/templates/main-template/index.js",
       "types": "./dist/templates/main-template/index.d.ts"
+    },
+    "./templates/main-template/types": {
+      "import": "./dist/templates/main-template/types.d.ts"
     }
   },
   "scripts": {
@@ -44,5 +47,8 @@
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-lib-inject-css": "^2.2.2",
     "vitest": "4.0.14"
+  },
+  "dependencies": {
+    "lucide-react": "^0.555.0"
   }
 }

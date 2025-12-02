@@ -1,7 +1,7 @@
 import { withVM } from "@/application/dependency-context";
-import { authViewModel } from "./auth.vm.tsx";
+import { AuthViewModel, type VM } from "./auth.vm.tsx";
 
-export var AuthView = withVM(() => authViewModel)(({ viewModel }) => {
+export var AuthView = withVM<VM>(AuthViewModel)(({ viewModel }) => {
   var { clickLogin, clickRegister, clickGetLoggedIn } = viewModel();
 
   return (
