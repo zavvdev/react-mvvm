@@ -1,4 +1,4 @@
-import styles from "./ErrorStyles.module.css";
+import styles from "./error-styles.module.css";
 
 interface ErrorViewProps {
   error: unknown;

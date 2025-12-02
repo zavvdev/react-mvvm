@@ -1,9 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
-import { withInjections } from "@/Application/DependencyContext";
-import { AuthView } from "@/Application/Modules/Auth";
-import { DashboardView } from "@/Application/Modules/Dashboard";
-import { NotFoundView } from "@/Application/Modules/NotFound";
-import type { Config } from "@/Core/Types";
+import { withInjections } from "@/application/dependency-context";
+import { AuthView } from "@/application/modules/auth/gateway/output";
+import { DashboardView } from "@/application/modules/dashboard/gateway/output";
+import { NotFoundView } from "@/application/modules/not-found/gateway/output";
+import type { Config } from "@/core/types";
 
 interface AppRoute {
   index?: boolean;

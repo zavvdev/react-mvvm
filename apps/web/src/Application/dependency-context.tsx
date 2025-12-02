@@ -2,7 +2,7 @@ import {
   createDependencyContext,
   createWithInstance,
 } from "@react-mvvm/dependency-context";
-import type { CoreDependencies } from "@/Core/Bootstrap";
+import type { CoreDependencies } from "@/core/bootstrap";
 
 export var { DependenciesContext, inject, withInjections } =
   createDependencyContext<CoreDependencies>();

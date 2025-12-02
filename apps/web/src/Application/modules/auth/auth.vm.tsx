@@ -1,4 +1,4 @@
-import { inject } from "@/Application/DependencyContext";
+import { inject } from "@/application/dependency-context";
 
 export var authViewModel = inject<"auth">("auth")(({ auth }) => {
   var clickLogin = () => {
