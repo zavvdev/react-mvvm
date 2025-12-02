@@ -16,6 +16,8 @@ export interface Config {
   };
 
   privateRoutes: {
-    dashboard: () => string;
+    profile: () => string;
+    settings: () => string;
+    expenses: () => string;
   };
 }

@@ -10,6 +10,8 @@ export var createConfig = (env: Env): Config => ({
   },
 
   privateRoutes: {
-    dashboard: () => "/dashboard",
+    profile: () => "/profile",
+    settings: () => "/settings",
+    expenses: () => "/expenses",
   },
 });
