@@ -21,7 +21,13 @@ export var Menu = ({ items }: Props) => {
             {items
               .filter((item) => item.isVisible)
               .map((item) => (
-                <MenuItemComponent key={item.id} onClick={item.onClick}>
+                <MenuItemComponent
+                  key={item.id}
+                  onClick={() => {
+                    item.onClick();
+                    setIsOpen(false);
+                  }}
+                >
                   {item.label}
                 </MenuItemComponent>
               ))}

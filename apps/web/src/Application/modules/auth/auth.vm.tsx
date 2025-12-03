@@ -1,24 +1,23 @@
 import { inject } from "@/application/dependency-context";
 
-export var AuthViewModel = () =>
-  inject<"auth">("auth")(({ auth }) => {
-    var clickLogin = () => {
-      console.log("Login clicked");
-    };
+export var AuthViewModel = inject<"auth">("auth")(({ auth }) => {
+  var clickLogin = () => {
+    console.log("Login clicked");
+  };
 
-    var clickRegister = () => {
-      console.log("Register clicked");
-    };
+  var clickRegister = () => {
+    console.log("Register clicked");
+  };
 
-    var clickGetLoggedIn = () => {
-      console.log("Is logged in:", auth.isLoggedIn());
-    };
+  var clickGetLoggedIn = () => {
+    console.log("Is logged in:", auth.isLoggedIn());
+  };
 
-    return {
-      clickLogin,
-      clickRegister,
-      clickGetLoggedIn,
-    };
-  });
+  return {
+    clickLogin,
+    clickRegister,
+    clickGetLoggedIn,
+  };
+});
 
-export type VM = ReturnType<typeof AuthViewModel>;
+export type ViewModel = typeof AuthViewModel;

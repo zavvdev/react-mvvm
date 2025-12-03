@@ -7,4 +7,4 @@ import type { CoreDependencies } from "@/core/bootstrap";
 export var { DependenciesContext, inject, withInjections } =
   createDependencyContext<CoreDependencies>();
 
-export var withVM = createWithInstance("viewModel");
+export var withVM = createWithInstance("useViewModel");
