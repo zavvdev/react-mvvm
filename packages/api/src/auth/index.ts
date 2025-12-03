@@ -1,6 +1,6 @@
 import type { Http } from "@react-mvvm/http";
 import { from, mergeMap } from "rxjs";
-import type { AnyResponse } from "../schemas";
+import { type AnyResponse, anyResponse } from "../schemas";
 import {
   type LoginDto,
   loginDto,
@@ -14,6 +14,7 @@ export var createAuthApi = (http: Http) => ({
       mergeMap((validDto) =>
         http.post$<AnyResponse>("/auth/register", validDto),
       ),
+      mergeMap((response) => from(anyResponse.parseAsync(response))),
     ),
 
   login$: (dto: LoginDto["Request"]) =>
@@ -24,5 +25,8 @@ export var createAuthApi = (http: Http) => ({
       mergeMap((response) => from(loginDto.response.parseAsync(response))),
     ),
 
-  logout$: () => http.delete$<AnyResponse>("/auth/logout"),
+  logout$: () =>
+    http
+      .delete$<AnyResponse>("/auth/logout")
+      .pipe(mergeMap((response) => from(anyResponse.parseAsync(response)))),
 });

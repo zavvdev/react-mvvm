@@ -7,4 +7,6 @@ export var response = <T extends ZodType>(data: T) =>
     data,
   });
 
-export type AnyResponse = t.infer<ReturnType<typeof response<t.ZodTypeAny>>>;
+export var anyResponse = response(t.unknown());
+
+export type AnyResponse = t.infer<typeof anyResponse>;
