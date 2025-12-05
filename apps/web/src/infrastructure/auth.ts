@@ -1,7 +1,7 @@
 import { type AnyResponse, AUTH_HEADER, MESSAGES } from "@react-mvvm/api";
 import type { TokenStorage } from "@react-mvvm/auth";
 import type { Failure, Request } from "@react-mvvm/http";
-import type { Config } from "@/core/types";
+import type { Config } from "@/infrastructure/types";
 
 export var createAuthTokenStorage = (config: Config): TokenStorage => ({
   get: () => {

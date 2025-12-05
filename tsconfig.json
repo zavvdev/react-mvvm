@@ -5,7 +5,7 @@
     { "path": "packages/auth" },
     { "path": "packages/dependency-context" },
     { "path": "packages/http" },
-    { "path": "packages/models" },
+    { "path": "packages/domain" },
     { "path": "packages/uikit-web" },
     { "path": "apps/web" }
   ],

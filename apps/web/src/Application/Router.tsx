@@ -6,7 +6,7 @@ import { ExpensesView } from "@/application/modules/expenses/gateway/output";
 import { NotFoundView } from "@/application/modules/not-found/gateway/output";
 import { ProfileView } from "@/application/modules/profile/gateway/output";
 import { SettingsView } from "@/application/modules/settings/gateway/output";
-import type { Config } from "@/core/types";
+import type { Config } from "@/infrastructure/types";
 
 interface AppRoute {
   index?: boolean;

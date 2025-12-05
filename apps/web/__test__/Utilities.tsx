@@ -1,6 +1,6 @@
 // import { render } from "vitest-browser-react";
-// import { bootstrap } from "../src/Core/Bootstrap.tsx";
-// import type { Env } from "../src/Core/Types/Env.ts";
+// import { bootstrap } from "../src/infrastructure/Bootstrap.tsx";
+// import type { Env } from "../src/infrastructure/Types/Env.ts";
 //
 // var testEnv: Env = {
 //   VITE_API_URL: "http://localhost:3000/api",

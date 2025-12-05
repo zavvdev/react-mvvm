@@ -1,6 +1,6 @@
 import { z as t } from "zod";
-import { Category } from "./Category";
-import { makeModel } from "./utils";
+import { makeModel } from "../utils";
+import { Category } from "./category";
 
 var schema = t.object({
   id: t.uuid(),

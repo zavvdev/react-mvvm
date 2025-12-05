@@ -1,5 +1,5 @@
 import { z as t } from "zod";
-import { makeModel } from "./utils";
+import { makeModel } from "../utils";
 
 var schema = t.object({
   id: t.uuid(),

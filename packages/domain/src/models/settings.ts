@@ -1,5 +1,5 @@
 import { z as t } from "zod";
-import { makeModel } from "./utils";
+import { makeModel } from "../utils";
 
 var schema = t.object({
   currency: t.string().length(3),

@@ -1,4 +1,7 @@
-import { type CoreDependencies, registerCore } from "@/core/bootstrap";
+import {
+  type CoreDependencies,
+  registerCore,
+} from "@/infrastructure/bootstrap";
 
 type RenderFunction = (children: React.ReactNode) => any | Promise<any>;
 

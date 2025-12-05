@@ -1,7 +1,7 @@
 import "@react-mvvm/uikit-web/styles.css";
 import { DependenciesContext } from "@/application/dependency-context";
 import { Router } from "@/application/router";
-import type { CoreDependencies } from "@/core/bootstrap";
+import type { CoreDependencies } from "@/infrastructure/bootstrap";
 
 interface ApplicationViewProps {
   dependencies: CoreDependencies;

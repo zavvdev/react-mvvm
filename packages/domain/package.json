@@ -1,0 +1,35 @@
+{
+  "name": "@react-mvvm/domain",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest"
+  },
+  "exports": {
+    "./models/category": {
+      "import": "./dist/models/category.js",
+      "types": "./dist/models/category.d.ts"
+    },
+    "./models/expense": {
+      "import": "./dist/models/expense.js",
+      "types": "./dist/models/expence.d.ts"
+    },
+    "./models/settings": {
+      "import": "./dist/models/settings.js",
+      "types": "./dist/models/settings.d.ts"
+    },
+    "./models/user": {
+      "import": "./dist/models/user.js",
+      "types": "./dist/models/user.d.ts"
+    }
+  },
+  "dependencies": {
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vitest": "4.0.14"
+  }
+}

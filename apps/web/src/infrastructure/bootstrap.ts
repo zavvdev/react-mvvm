@@ -5,9 +5,9 @@ import {
   createAuthRequestInterceptor,
   createAuthResponseErrorInterceptor,
   createAuthTokenStorage,
-} from "@/core/auth";
-import { createConfig } from "@/core/config";
-import { type Config, envSchema } from "@/core/types";
+} from "@/infrastructure/auth";
+import { createConfig } from "@/infrastructure/config";
+import { type Config, envSchema } from "@/infrastructure/types";
 
 export interface CoreDependencies {
   config: Config;

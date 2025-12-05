@@ -1,4 +1,4 @@
-import type { Config, Env } from "@/core/types";
+import type { Config, Env } from "@/infrastructure/types";
 
 export var createConfig = (env: Env): Config => ({
   apiUrl: env.VITE_API_URL,
