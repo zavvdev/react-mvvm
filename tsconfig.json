@@ -14,5 +14,11 @@
     "strict": true,
     "skipLibCheck": true,
     "jsx": "react-jsx"
-  }
+  },
+  "exclude": [
+    "**/__tests__/**",
+    "**/__test__/**",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ]
 }

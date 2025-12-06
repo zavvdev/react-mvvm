@@ -9,7 +9,7 @@ interface ViewDependencies {
 
 type Props = PropsWithChildren;
 
-export var View = ({ useViewModel, children }: ViewDependencies & Props) => (
+var View = ({ useViewModel, children }: ViewDependencies & Props) => (
   <MainTemplate menu={useViewModel().menu}>{children}</MainTemplate>
 );
 
