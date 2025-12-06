@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it } from "vitest";
-import { MainTemplate } from "../../templates/main-template";
+import { MainTemplate } from "./index";
 
 describe("MainTemplate", () => {
   it("should render a component", () => {

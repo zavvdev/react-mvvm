@@ -1,8 +1,8 @@
 import { of } from "rxjs";
 import { describe, expect, test } from "vitest";
-import type { Api } from "../../api";
-import { Auth } from "../index";
-import type { AuthTokenStorage } from "../types";
+import type { Api } from "../api";
+import { Auth } from "./index";
+import type { AuthTokenStorage } from "./types";
 
 describe("Auth", () => {
   var api = {

@@ -1,7 +1,7 @@
 import { of } from "rxjs";
 import { describe, expect, it, vi } from "vitest";
 import type { Http } from "../../http";
-import { createAuthApi } from "../auth";
+import { createAuthApi } from "./index";
 
 describe("createAuthApi", () => {
   var mockHttp = {

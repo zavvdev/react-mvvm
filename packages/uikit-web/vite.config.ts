@@ -19,7 +19,13 @@ export default defineConfig({
     }),
     libInjectCss(),
     dts({
-      exclude: ["src/__test__", "**/*.test.tsx", "**/*.spec.tsx"],
+      exclude: [
+        "src/__test__",
+        "**/*.test.tsx",
+        "**/*.spec.tsx",
+        "**/*.test.ts",
+        "**/*.spec.ts",
+      ],
       tsconfigPath: "tsconfig.app.json",
     }),
   ],
