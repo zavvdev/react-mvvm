@@ -99,6 +99,9 @@ importers:
 
   packages/api:
     dependencies:
+      '@react-mvvm/domain':
+        specifier: workspace:*
+        version: link:../domain
       '@react-mvvm/http':
         specifier: workspace:*
         version: link:../http
@@ -145,19 +148,6 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
-  packages/http:
-    dependencies:
-      axios:
-        specifier: ^1.13.2
-        version: 1.13.2
-      rxjs:
-        specifier: ^7.8.2
-        version: 7.8.2
-    devDependencies:
-      typescript:
-        specifier: ^5.9.3
-        version: 5.9.3
-
   packages/domain:
     dependencies:
       zod:
@@ -170,6 +160,19 @@ importers:
       vitest:
         specifier: 4.0.14
         version: 4.0.14(@types/node@24.10.1)(@vitest/browser-playwright@4.0.14)(@vitest/ui@4.0.14)(jiti@2.6.1)(jsdom@27.2.0)(lightningcss@1.30.2)(yaml@2.8.1)
+
+  packages/http:
+    dependencies:
+      axios:
+        specifier: ^1.13.2
+        version: 1.13.2
+      rxjs:
+        specifier: ^7.8.2
+        version: 7.8.2
+    devDependencies:
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
 
   packages/uikit-web:
     dependencies:
@@ -5781,7 +5784,7 @@ snapshots:
       sirv: 3.0.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.0.3
-      vitest: 4.0.14(@types/node@24.10.0)(@vitest/browser-playwright@4.0.14)(@vitest/ui@4.0.14)(jiti@2.6.1)(jsdom@27.2.0)(lightningcss@1.30.2)(yaml@2.8.1)
+      vitest: 4.0.14(@types/node@24.10.1)(@vitest/browser-playwright@4.0.14)(@vitest/ui@4.0.14)(jiti@2.6.1)(jsdom@27.2.0)(lightningcss@1.30.2)(yaml@2.8.1)
 
   '@vitest/ui@4.0.14(vitest@4.0.8)':
     dependencies:

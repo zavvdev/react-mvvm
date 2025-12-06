@@ -8,6 +8,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@react-mvvm/domain": "workspace:*",
     "@react-mvvm/http": "workspace:*",
     "rxjs": "^7.8.2",
     "zod": "^4.1.12"

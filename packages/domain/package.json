@@ -7,24 +7,6 @@
     "build": "tsc -p tsconfig.json",
     "test": "vitest"
   },
-  "exports": {
-    "./models/category": {
-      "import": "./dist/models/category.js",
-      "types": "./dist/models/category.d.ts"
-    },
-    "./models/expense": {
-      "import": "./dist/models/expense.js",
-      "types": "./dist/models/expence.d.ts"
-    },
-    "./models/settings": {
-      "import": "./dist/models/settings.js",
-      "types": "./dist/models/settings.d.ts"
-    },
-    "./models/user": {
-      "import": "./dist/models/user.js",
-      "types": "./dist/models/user.d.ts"
-    }
-  },
   "dependencies": {
     "zod": "^4.1.12"
   },
