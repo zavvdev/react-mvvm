@@ -1,75 +1,45 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
-import { MainTemplateView } from "@/core/components/templates/main-template/main-template.view";
-import { withInjections } from "@/core/dependency-context";
-import { AuthView } from "@/modules/auth/gateway/output";
-import { ExpensesView } from "@/modules/expenses/gateway/output";
-import { NotFoundView } from "@/modules/not-found/gateway/output";
-import { ProfileView } from "@/modules/profile/gateway/output";
-import { SettingsView } from "@/modules/settings/gateway/output";
-import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "@/routes";
+import { MainTemplate } from "@/core/components/templates/main-template/main-template.view";
+import { Counter } from "@/modules/counter/_gateway/output";
+import { NotFound } from "@/modules/not-found/_gateway/output";
+import { Posts } from "@/modules/posts/_gateway/output";
+import { PUBLIC_ROUTES } from "@/routes";
 
 interface AppRoute {
   index?: boolean;
   path?: string;
-  private?: boolean;
   element: React.ReactElement;
 }
 
-var routes = (): Array<AppRoute> => [
+var ROUTES: Array<AppRoute> = [
   {
     index: true,
     path: "/",
-    private: true,
-    element: <Navigate to={PRIVATE_ROUTES.expenses()} replace />,
+    element: <Navigate to={PUBLIC_ROUTES.posts()} replace />,
   },
   {
-    path: PRIVATE_ROUTES.profile(),
-    private: true,
-    element: <ProfileView />,
+    path: PUBLIC_ROUTES.posts(),
+    element: <Posts />,
   },
   {
-    path: PRIVATE_ROUTES.settings(),
-    private: true,
-    element: <SettingsView />,
-  },
-  {
-    path: PRIVATE_ROUTES.expenses(),
-    private: true,
-    element: <ExpensesView />,
-  },
-  {
-    path: PUBLIC_ROUTES.auth(),
-    private: false,
-    element: <AuthView />,
+    path: PUBLIC_ROUTES.counter(),
+    element: <Counter />,
   },
   {
     path: "*",
-    private: false,
-    element: <NotFoundView />,
+    element: <NotFound />,
   },
 ];
-
-var AppRoute = withInjections<
-  "auth",
-  {
-    route: AppRoute;
-  }
->("auth")(({ auth, route }) => {
-  if (route.private && !auth.isLoggedIn()) {
-    return <Navigate to={PUBLIC_ROUTES.auth()} />;
-  }
-  return <MainTemplateView>{route.element}</MainTemplateView>;
-});
 
 export var Router = () => (
   <BrowserRouter>
     <Routes>
-      {routes().map((route) => (
+      {ROUTES.map((route) => (
         <Route
           key={route.path}
           index={route.index}
           path={route.path}
-          element={<AppRoute route={route} />}
+          element={<MainTemplate>{route.element}</MainTemplate>}
         />
       ))}
     </Routes>

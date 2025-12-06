@@ -1,12 +1,12 @@
 .root {
-  --footer-bg: #dce8f7;
+  --c-footer-bg: #dce8f7;
 
   position: relative;
   height: 100vh;
   padding: 1rem;
   max-width: 1400px;
   margin: 0 auto;
-  background-color: var(--background-color);
+  background-color: var(--c-bg);
   box-sizing: border-box;
 
   .footer {
@@ -17,7 +17,7 @@
     padding: 1rem;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    background-color: var(--footer-bg);
+    background-color: var(--c-footer-bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,5 +32,5 @@
 }
 
 :global(body.dark) .root {
-  --footer-bg: #2f3a48;
+  --c-footer-bg: #2f3a48;
 }

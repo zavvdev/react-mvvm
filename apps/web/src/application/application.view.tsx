@@ -2,11 +2,7 @@ import "@react-mvvm/uikit-web/styles.css";
 import type { PropsWithChildren } from "react";
 import { Router } from "@/application/router";
 import { DependenciesContext } from "@/core/dependency-context";
-import type { CoreDependencies } from "@/core/types";
-
-interface ApplicationProps {
-  dependencies: CoreDependencies;
-}
+import type { ApplicationProps } from "./types";
 
 // If you need to add more providers, you can do it here.
 // Also, you can use this wrapper in your tests to provide mock dependencies
@@ -20,7 +16,7 @@ var ApplicationWrapper = ({
   </DependenciesContext.Provider>
 );
 
-export var ApplicationView = ({ dependencies }: ApplicationProps) => (
+export var Application = ({ dependencies }: ApplicationProps) => (
   <ApplicationWrapper dependencies={dependencies}>
     <Router />
   </ApplicationWrapper>

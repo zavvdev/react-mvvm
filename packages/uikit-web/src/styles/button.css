@@ -1,10 +1,10 @@
 button {
   cursor: pointer;
   border: none;
-  background-color: var(--button-background);
-  color: var(--button-text-color);
+  background-color: var(--button-c-bg);
+  color: var(--button-c-text);
   padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,18 +1,29 @@
-import { MainTemplate } from "@react-mvvm/uikit-web/templates/main-template";
+import { MainTemplate as MainTemplate_ } from "@react-mvvm/uikit-web/templates/main-template";
 import type { PropsWithChildren } from "react";
-import { withVM } from "@/core/dependency-context";
-import { mainTemplateViewModel, type ViewModel } from "./main-template.vm";
+import { useNavigate } from "react-router";
+import { PUBLIC_ROUTES } from "@/routes";
 
-interface ViewDependencies {
-  useViewModel: ViewModel;
-}
+export var MainTemplate = ({ children }: PropsWithChildren) => {
+  var navigate = useNavigate();
 
-type Props = PropsWithChildren;
-
-var View = ({ useViewModel, children }: ViewDependencies & Props) => (
-  <MainTemplate menu={useViewModel().menu}>{children}</MainTemplate>
-);
-
-export var MainTemplateView = withVM<ViewModel, Props>(mainTemplateViewModel)(
-  View,
-);
+  return (
+    <MainTemplate_
+      menu={[
+        {
+          id: "posts",
+          label: "Posts",
+          isVisible: true,
+          onClick: () => navigate(PUBLIC_ROUTES.posts()),
+        },
+        {
+          id: "counter",
+          label: "Counter",
+          isVisible: true,
+          onClick: () => navigate(PUBLIC_ROUTES.counter()),
+        },
+      ]}
+    >
+      {children}
+    </MainTemplate_>
+  );
+};

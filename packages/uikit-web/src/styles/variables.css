@@ -1,30 +1,29 @@
 :root {
-  --border-radius: 4px;
-  --background-color: #ffffff;
+  --c-bg: #ffffff;
+  --c-text: #000000;
+  --c-error: #d93025;
 
-  --text-color: #000000;
+  --link-c-text: #1a0dab;
 
-  --link-color: #1a0dab;
+  --button-c-bg: #1a73e8;
+  --button-c-text: #ffffff;
 
-  --button-background: #1a73e8;
-  --button-text-color: #ffffff;
-
-  --input-padding: 0.5rem 1rem;
-  --input-border-color: #ccc;
-  --input-background: #ffffff;
-  --input-text-color: #000000;
+  --input-c-border: #ccc;
+  --input-c-bg: #ffffff;
+  --input-c-text: #000000;
 
   & body.dark {
-    --background-color: #0e161c;
+    --c-bg: #0e161c;
+    --c-text: #ffffff;
+    --c-error: #f28b82;
 
-    --text-color: #ffffff;
+    --link-c-text: #8ab4f8;
 
-    --link-color: #8ab4f8;
+    --button-c-bg: #1b4379;
+    --button-c-text: #ceceff;
 
-    --button-background: #1b4379;
-
-    --input-background: #253139;
-    --input-border-color: #6c6c6c;
-    --input-text-color: #fff;
+    --input-c-border: #6c6c6c;
+    --input-c-bg: #253139;
+    --input-c-text: #fff;
   }
 }

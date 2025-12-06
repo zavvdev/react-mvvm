@@ -1,10 +1,10 @@
 import {
   createDependencyContext,
-  createWithInstance,
+  // createWithInstance,
 } from "@react-mvvm/dependency-context";
 import type { CoreDependencies } from "./types";
 
-export var { DependenciesContext, inject, withInjections } =
+export var { DependenciesContext } =
   createDependencyContext<CoreDependencies>();
 
-export var withVM = createWithInstance("useViewModel");
+// export var withVM = createWithInstance("useViewModel");

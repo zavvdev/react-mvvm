@@ -1,5 +1,5 @@
-import styles from "./not-found-styles.module.css";
+import styles from "./not-found.module.css";
 
-export var NotFoundView = () => {
+export var NotFound = () => {
   return <div className={styles.root}>404 - Not Found</div>;
 };

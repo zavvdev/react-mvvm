@@ -1,22 +1,33 @@
 import { registerCoreDependencies } from "@/core/bootstrap";
-import type { CoreDependencies } from "@/core/types";
+import { errorTracker } from "@/core/error-tracker";
+import { ErrorBoundary } from "./error-boundary";
+import type { ApplicationProps } from "./types";
 
 type RenderFunction = (children: React.ReactNode) => any | Promise<any>;
 
-type Application = React.FC<{ dependencies: CoreDependencies }>;
-type Error = React.FC<{ error: unknown }> | null;
-
 export var bootstrap =
   (render: RenderFunction) =>
-  (App: Application, Err: Error) =>
+  (
+    App: React.FC<ApplicationProps>,
+    Crash: React.FC<{ error: unknown }> | null,
+  ) =>
   (env: unknown) => {
     try {
-      return render(<App dependencies={registerCoreDependencies(env)} />);
+      return render(
+        <ErrorBoundary>
+          <App dependencies={registerCoreDependencies(env)} />
+        </ErrorBoundary>,
+      );
     } catch (error) {
-      console.error("Error during application initialization:", error);
-      if (Err) {
-        return render(<Err error={error} />);
+      errorTracker.report({
+        location: "bootstrap",
+        error,
+      });
+
+      if (Crash) {
+        return render(<Crash error={error} />);
       }
+
       throw error;
     }
   };

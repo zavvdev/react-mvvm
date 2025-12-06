@@ -17,6 +17,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
 
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--c-bg);
+  color: var(--c-text);
 }

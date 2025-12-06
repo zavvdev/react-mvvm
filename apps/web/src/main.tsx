@@ -1,9 +1,9 @@
 import { createRoot } from "react-dom/client";
-import { ApplicationView } from "@/application/application.view";
+import { Application } from "@/application/application.view";
 import { bootstrap } from "@/application/bootstrap";
-import { ErrorView } from "@/modules/error/gateway/output";
+import { Crash } from "@/modules/crash/_gateway/output";
 
 var appRootElement = document.getElementById("root")!;
 var render = (app: React.ReactNode) => createRoot(appRootElement).render(app);
 
-bootstrap(render)(ApplicationView, ErrorView)(import.meta.env);
+bootstrap(render)(Application, Crash)(import.meta.env);

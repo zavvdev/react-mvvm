@@ -122,7 +122,8 @@ export var createHttp = <R>(config: {
               ...res,
               ...modified,
             } as AxiosResponse<R>;
-          });
+          })
+          .catch((err) => Promise.reject(err));
       }
       return res;
     },
@@ -145,7 +146,8 @@ export var createHttp = <R>(config: {
               ...error,
               ...modified,
             } as AxiosError<R>);
-          });
+          })
+          .catch((err) => Promise.reject(err));
       }
       return Promise.reject(error);
     },
@@ -165,7 +167,8 @@ export var createHttp = <R>(config: {
             ...req,
             ...modified,
           } as InternalAxiosRequestConfig;
-        });
+        })
+        .catch((err) => Promise.reject(err));
     }
     return req;
   });
