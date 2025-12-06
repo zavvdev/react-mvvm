@@ -17,28 +17,22 @@
 3. Install project dependencies:
 
    ```bash
-   make install-deps
+   make install
    ```
 
-4. Install the necessary browsers for Playwright testing:
-
-    ```bash
-    pnpm exec playwright install
-    ```
-
-5. Build the project:
+4. Build the project:
 
    ```bash
    make build
    ```
 
-6. Start the development server for web application:
+5. Start the development server for web application:
 
    ```bash
    make web-dev
    ```
 
-7. Preview the production build:
+6. Preview the production build:
 
    ```bash
    make web-preview
