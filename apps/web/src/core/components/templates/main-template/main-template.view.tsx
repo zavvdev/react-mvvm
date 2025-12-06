@@ -3,12 +3,16 @@ import type { PropsWithChildren } from "react";
 import { withVM } from "@/core/dependency-context";
 import { mainTemplateViewModel, type ViewModel } from "./main-template.vm";
 
-interface Props extends PropsWithChildren {
+interface ViewDependencies {
   useViewModel: ViewModel;
 }
 
-var View = ({ useViewModel, children }: Props) => (
+type Props = PropsWithChildren;
+
+export var View = ({ useViewModel, children }: ViewDependencies & Props) => (
   <MainTemplate menu={useViewModel().menu}>{children}</MainTemplate>
 );
 
-export var MainTemplateView = withVM<ViewModel>(mainTemplateViewModel)(View);
+export var MainTemplateView = withVM<ViewModel, Props>(mainTemplateViewModel)(
+  View,
+);

@@ -6,7 +6,12 @@ interface Props {
 }
 
 export var CloseButton = ({ onClick }: Props) => (
-  <button type="button" onClick={onClick} className={styles.root}>
+  <button
+    type="button"
+    onClick={onClick}
+    className={styles.root}
+    data-testid="close-button"
+  >
     <Icons.X />
   </button>
 );

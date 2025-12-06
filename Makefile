@@ -6,10 +6,10 @@ package:
 link-package:
 	pnpm add "@react-mvvm/$(name)@workspace:*" --filter @react-mvvm/$(to)
 
-install-deps:
+install:
 	pnpm install
 
-install-deps-fresh:
+install-fresh:
 	pnpm install --force
 
 build:

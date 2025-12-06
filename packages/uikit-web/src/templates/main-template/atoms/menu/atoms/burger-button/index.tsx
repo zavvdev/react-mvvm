@@ -5,7 +5,12 @@ interface Props {
 }
 
 export var BurgerButton = ({ onClick }: Props) => (
-  <button type="button" className={styles.root} onClick={onClick}>
+  <button
+    type="button"
+    className={styles.root}
+    onClick={onClick}
+    data-testid="burger-button"
+  >
     <span />
     <span />
     <span />
