@@ -10,10 +10,8 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@react-mvvm/api": "workspace:*",
-    "@react-mvvm/auth": "workspace:*",
     "@react-mvvm/dependency-context": "workspace:*",
-    "@react-mvvm/http": "workspace:*",
+    "@react-mvvm/infrastructure": "workspace:*",
     "@react-mvvm/uikit-web": "workspace:*",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

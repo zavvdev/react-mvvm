@@ -35,18 +35,12 @@ importers:
 
   apps/web:
     dependencies:
-      '@react-mvvm/api':
-        specifier: workspace:*
-        version: link:../../packages/api
-      '@react-mvvm/auth':
-        specifier: workspace:*
-        version: link:../../packages/auth
       '@react-mvvm/dependency-context':
         specifier: workspace:*
         version: link:../../packages/dependency-context
-      '@react-mvvm/http':
+      '@react-mvvm/infrastructure':
         specifier: workspace:*
-        version: link:../../packages/http
+        version: link:../../packages/infrastructure
       '@react-mvvm/uikit-web':
         specifier: workspace:*
         version: link:../../packages/uikit-web
@@ -97,44 +91,6 @@ importers:
         specifier: 2.0.2
         version: 2.0.2(@types/react-dom@19.2.2(@types/react@19.2.3))(@types/react@19.2.3)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vitest@4.0.14)
 
-  packages/api:
-    dependencies:
-      '@react-mvvm/domain':
-        specifier: workspace:*
-        version: link:../domain
-      '@react-mvvm/http':
-        specifier: workspace:*
-        version: link:../http
-      rxjs:
-        specifier: ^7.8.2
-        version: 7.8.2
-      zod:
-        specifier: ^4.1.12
-        version: 4.1.12
-    devDependencies:
-      typescript:
-        specifier: ^5.9.3
-        version: 5.9.3
-      vitest:
-        specifier: 4.0.14
-        version: 4.0.14(@types/node@24.10.1)(@vitest/browser-playwright@4.0.14)(@vitest/ui@4.0.14)(jiti@2.6.1)(jsdom@27.2.0)(lightningcss@1.30.2)(yaml@2.8.1)
-
-  packages/auth:
-    dependencies:
-      '@react-mvvm/api':
-        specifier: workspace:*
-        version: link:../api
-      rxjs:
-        specifier: ^7.8.2
-        version: 7.8.2
-    devDependencies:
-      typescript:
-        specifier: ^5.9.3
-        version: 5.9.3
-      vitest:
-        specifier: 4.0.14
-        version: 4.0.14(@types/node@24.10.1)(@vitest/browser-playwright@4.0.14)(@vitest/ui@4.0.14)(jiti@2.6.1)(jsdom@27.2.0)(lightningcss@1.30.2)(yaml@2.8.1)
-
   packages/dependency-context:
     dependencies:
       react:
@@ -161,18 +117,27 @@ importers:
         specifier: 4.0.14
         version: 4.0.14(@types/node@24.10.1)(@vitest/browser-playwright@4.0.14)(@vitest/ui@4.0.14)(jiti@2.6.1)(jsdom@27.2.0)(lightningcss@1.30.2)(yaml@2.8.1)
 
-  packages/http:
+  packages/infrastructure:
     dependencies:
+      '@react-mvvm/domain':
+        specifier: workspace:*
+        version: link:../domain
       axios:
         specifier: ^1.13.2
         version: 1.13.2
       rxjs:
         specifier: ^7.8.2
         version: 7.8.2
+      zod:
+        specifier: ^4.1.12
+        version: 4.1.12
     devDependencies:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+      vitest:
+        specifier: 4.0.14
+        version: 4.0.14(@types/node@24.10.1)(@vitest/browser-playwright@4.0.14)(@vitest/ui@4.0.14)(jiti@2.6.1)(jsdom@27.2.0)(lightningcss@1.30.2)(yaml@2.8.1)
 
   packages/uikit-web:
     dependencies:

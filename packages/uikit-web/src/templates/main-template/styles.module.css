@@ -22,10 +22,11 @@
     justify-content: space-between;
     align-items: center;
 
-    @media screen and (min-width: 1400px) {
+    @media screen and (min-width: 1500px) {
       width: 1400px;
-      left: unset;
       right: unset;
+      transform: translate(-50%, 0);
+      left: 50%;
     }
   }
 }

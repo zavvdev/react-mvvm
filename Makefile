@@ -16,7 +16,7 @@ build:
 	pnpm -r run build
 
 build-one:
-	lerna run build --scope $(name)
+	lerna run build --scope "@react-mvvm/$(name)"
 
 test:
 	pnpm -r test

@@ -1,7 +1,5 @@
-import {
-  type CoreDependencies,
-  registerCore,
-} from "@/infrastructure/bootstrap";
+import { registerCoreDependencies } from "@/core/bootstrap";
+import type { CoreDependencies } from "@/core/types";
 
 type RenderFunction = (children: React.ReactNode) => any | Promise<any>;
 
@@ -13,7 +11,7 @@ export var bootstrap =
   (App: Application, Err: Error) =>
   (env: unknown) => {
     try {
-      return render(<App dependencies={registerCore(env)} />);
+      return render(<App dependencies={registerCoreDependencies(env)} />);
     } catch (error) {
       console.error("Error during application initialization:", error);
       if (Err) {

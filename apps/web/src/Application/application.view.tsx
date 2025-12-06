@@ -1,13 +1,13 @@
 import "@react-mvvm/uikit-web/styles.css";
-import { DependenciesContext } from "@/application/dependency-context";
 import { Router } from "@/application/router";
-import type { CoreDependencies } from "@/infrastructure/bootstrap";
+import { DependenciesContext } from "@/core/dependency-context";
+import type { CoreDependencies } from "@/core/types";
 
-interface ApplicationViewProps {
+interface Props {
   dependencies: CoreDependencies;
 }
 
-export var ApplicationView = ({ dependencies }: ApplicationViewProps) => (
+export var ApplicationView = ({ dependencies }: Props) => (
   <DependenciesContext.Provider value={dependencies}>
     <Router />
   </DependenciesContext.Provider>

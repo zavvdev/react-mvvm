@@ -1,11 +1,9 @@
 {
   "files": [],
   "references": [
-    { "path": "packages/api" },
-    { "path": "packages/auth" },
     { "path": "packages/dependency-context" },
-    { "path": "packages/http" },
     { "path": "packages/domain" },
+    { "path": "packages/infrastructure" },
     { "path": "packages/uikit-web" },
     { "path": "apps/web" }
   ],

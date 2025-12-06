@@ -19,7 +19,7 @@ export var createDependencyContext = <D>() => {
   };
 
   var inject =
-    <K extends DKey, P extends Props = DefaultProps>(...keys: K[]) =>
+    <K extends DKey, P = DefaultProps>(...keys: K[]) =>
     <R>(fn: (deps: P & Pick<D, K>) => R) =>
     (args?: P): R => {
       var deps = useDeps();
