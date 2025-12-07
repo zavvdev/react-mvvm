@@ -29,6 +29,9 @@ importers:
       '@react-mvvm/dependency-context':
         specifier: workspace:*
         version: link:../../packages/dependency-context
+      '@react-mvvm/domain':
+        specifier: workspace:*
+        version: link:../../packages/domain
       '@react-mvvm/infrastructure':
         specifier: workspace:*
         version: link:../../packages/infrastructure
@@ -44,6 +47,9 @@ importers:
       react-router:
         specifier: ^7.9.5
         version: 7.9.5(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      rxjs:
+        specifier: ^7.8.2
+        version: 7.8.2
       zod:
         specifier: ^4.1.12
         version: 4.1.12

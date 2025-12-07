@@ -1,32 +1,32 @@
 import { useLayoutEffect, useState } from "react";
 
-var THEME = {
+const THEME = {
   dark: "dark",
   light: "light",
 };
 
 type Theme = keyof typeof THEME;
 
-var LC_KEY = "app-theme";
+const LC_KEY = "app-theme";
 
-var getAppTheme = () =>
+const getAppTheme = () =>
   window.matchMedia("(prefers-color-scheme: dark)").matches
     ? THEME.dark
     : THEME.light;
 
-export var useDeviceTheme = () => {
-  var { 0: theme, 1: setTheme } = useState(getAppTheme);
+export const useDeviceTheme = () => {
+  const { 0: theme, 1: setTheme } = useState(getAppTheme);
 
   useLayoutEffect(() => {
-    var lcTheme = localStorage.getItem(LC_KEY) as Theme;
+    const lcTheme = localStorage.getItem(LC_KEY) as Theme;
 
     if (lcTheme) {
       setTheme(lcTheme);
       return;
     }
 
-    var mq = window.matchMedia("(prefers-color-scheme: dark)");
-    var onChange = () => setTheme(mq.matches ? THEME.dark : THEME.light);
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const onChange = () => setTheme(mq.matches ? THEME.dark : THEME.light);
 
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);

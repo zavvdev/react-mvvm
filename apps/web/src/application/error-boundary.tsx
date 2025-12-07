@@ -1,5 +1,5 @@
 import { Component, type PropsWithChildren } from "react";
-import { errorTracker } from "@/core/error-tracker";
+import { errorTracker } from "@/core/services/error-tracker.service";
 import { Crash } from "@/modules/crash/_gateway/output";
 
 interface State {

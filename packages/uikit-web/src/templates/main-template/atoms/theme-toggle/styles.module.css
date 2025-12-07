@@ -1,5 +1,5 @@
 .root {
-  --bg: #fff;
+  --c-bg: #fff;
 
   width: 30px;
   height: 30px;
@@ -7,10 +7,10 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background: var(--bg);
-  box-shadow: 0 0 4px 3px var(--bg);
+  background: var(--c-bg);
+  box-shadow: 0 0 4px 3px var(--c-bg);
 }
 
 :global(body.dark) .root {
-  --bg: #0d161c;
+  --c-bg: #0d161c;
 }

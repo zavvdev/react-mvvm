@@ -4,7 +4,7 @@ interface Props {
   onClick: () => void;
 }
 
-export var BurgerButton = ({ onClick }: Props) => (
+export const BurgerButton = ({ onClick }: Props) => (
   <button
     type="button"
     className={styles.root}

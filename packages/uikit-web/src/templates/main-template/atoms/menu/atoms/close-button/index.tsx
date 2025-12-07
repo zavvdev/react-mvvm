@@ -5,7 +5,7 @@ interface Props {
   onClick: () => void;
 }
 
-export var CloseButton = ({ onClick }: Props) => (
+export const CloseButton = ({ onClick }: Props) => (
   <button
     type="button"
     onClick={onClick}

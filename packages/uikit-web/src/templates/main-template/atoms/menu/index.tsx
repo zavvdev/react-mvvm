@@ -9,8 +9,8 @@ interface Props {
   items: Array<MenuItem>;
 }
 
-export var Menu = ({ items }: Props) => {
-  var { 0: isOpen, 1: setIsOpen } = useState(false);
+export const Menu = ({ items }: Props) => {
+  const { 0: isOpen, 1: setIsOpen } = useState(false);
 
   return (
     <>

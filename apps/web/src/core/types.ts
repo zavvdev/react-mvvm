@@ -1,7 +1,7 @@
 import type { Api } from "@react-mvvm/infrastructure";
 import { z as t } from "zod";
 
-export var envSchema = t.object({
+export const envSchema = t.object({
   VITE_API_URL: t.url(),
 });
 

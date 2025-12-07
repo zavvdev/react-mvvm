@@ -8,7 +8,7 @@ interface Props extends PropsWithChildren {
   menu: Array<MenuItem>;
 }
 
-export var MainTemplate = ({ children, menu }: Props) => (
+export const MainTemplate = ({ children, menu }: Props) => (
   <div className={styles.root}>
     {children}
     <div className={styles.footer}>

@@ -4,18 +4,18 @@ import type { Http } from "../../http";
 import { createPostsApi } from "./index";
 
 describe("createPostsApi", () => {
-  var mockHttp = {
+  const mockHttp = {
     get$: vi.fn(),
     delete$: vi.fn(),
   } as unknown as Http;
 
-  var postsApi = createPostsApi(mockHttp);
+  const postsApi = createPostsApi(mockHttp);
 
   it("getAll$ should call get$", () => {
-    var response = [
+    const response = [
       {
-        id: "1",
-        userId: "user1",
+        id: 1,
+        userId: 2,
         title: "Post 1",
         body: "Content 1",
       },
@@ -31,7 +31,7 @@ describe("createPostsApi", () => {
   });
 
   it("delete$ should call http.delete$", () => {
-    var requestDto = { id: "1" };
+    const requestDto = { id: "1" };
     mockHttp.delete$ = vi.fn(() => of()) as Http["delete$"];
 
     postsApi.delete$(requestDto).subscribe(() => {

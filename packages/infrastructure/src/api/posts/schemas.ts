@@ -3,7 +3,7 @@ import { z as t } from "zod";
 
 // Get all DTO
 
-export var getAllDto = {
+export const getAllDto = {
   response: t.array(Post.schema),
 };
 
@@ -13,7 +13,7 @@ export type GetAllDto = {
 
 // Delete DTO
 
-export var deleteDto = {
+export const deleteDto = {
   request: t.object({
     id: t.string(),
   }),

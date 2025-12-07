@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { MainTemplate } from "@/core/components/templates/main-template/main-template.view";
 import { Counter } from "@/modules/counter/_gateway/output";
 import { NotFound } from "@/modules/not-found/_gateway/output";
-import { Posts } from "@/modules/posts/_gateway/output";
+import { Post, Posts } from "@/modules/posts/_gateway/output";
 import { PUBLIC_ROUTES } from "@/routes";
 
 interface AppRoute {
@@ -11,7 +11,7 @@ interface AppRoute {
   element: React.ReactElement;
 }
 
-var ROUTES: Array<AppRoute> = [
+const ROUTES: Array<AppRoute> = [
   {
     index: true,
     path: "/",
@@ -20,6 +20,10 @@ var ROUTES: Array<AppRoute> = [
   {
     path: PUBLIC_ROUTES.posts(),
     element: <Posts />,
+  },
+  {
+    path: PUBLIC_ROUTES.post(":id"),
+    element: <Post />,
   },
   {
     path: PUBLIC_ROUTES.counter(),
@@ -31,7 +35,7 @@ var ROUTES: Array<AppRoute> = [
   },
 ];
 
-export var Router = () => (
+export const Router = () => (
   <BrowserRouter>
     <Routes>
       {ROUTES.map((route) => (

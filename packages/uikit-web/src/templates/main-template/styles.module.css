@@ -2,12 +2,12 @@
   --c-footer-bg: #dce8f7;
 
   position: relative;
-  height: 100vh;
-  padding: 1rem;
+  padding: 1rem 1rem 10rem 1rem;
   max-width: 1400px;
   margin: 0 auto;
   background-color: var(--c-bg);
   box-sizing: border-box;
+  height: fit-content;
 
   .footer {
     position: fixed;

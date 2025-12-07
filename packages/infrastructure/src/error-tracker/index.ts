@@ -16,9 +16,9 @@ export class ErrorTracker {
   }
 
   public report<T = unknown>(error: Issue<T>, config?: TrackerConfig): void {
-    var isEnabled = config?.isEnabled ?? this.config.isEnabled;
+    const isEnabled = config?.isEnabled ?? this.config.isEnabled;
 
-    var errorToReport = {
+    const errorToReport = {
       message: error.message || "",
       location: error.location || "",
       error: error.error,

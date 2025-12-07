@@ -93,7 +93,7 @@ export class Http {
   }
 }
 
-export var createHttp = <R>(config: {
+export const createHttp = <R>(config: {
   baseUrl: string;
   headers?: HttpHeaders;
   withCredentials?: boolean;
@@ -101,7 +101,7 @@ export var createHttp = <R>(config: {
   onResponseError?: (error: HttpFailure<R>) => Promise<HttpFailure<R>>;
   onRequest?: (config: HttpRequestConfig) => Promise<HttpRequestConfig>;
 }) => {
-  var client = axios.create({
+  const client = axios.create({
     baseURL: config.baseUrl,
     headers: config.headers,
     withCredentials: config.withCredentials,

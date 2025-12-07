@@ -1,5 +1,5 @@
 import * as lucideIcons from "lucide-react";
 
-export var Icons = {
+export const Icons = {
   X: lucideIcons.X,
 };

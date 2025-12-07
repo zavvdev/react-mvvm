@@ -4,7 +4,7 @@ interface Props {
   error: unknown;
 }
 
-export var Crash = ({ error }: Props) => (
+export const Crash = ({ error }: Props) => (
   <div className={styles.root}>
     <h1>Application Crashed</h1>
     <pre>

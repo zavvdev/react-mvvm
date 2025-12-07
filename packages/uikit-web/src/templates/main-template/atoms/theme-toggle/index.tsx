@@ -1,8 +1,8 @@
-import { useDeviceTheme } from "../../../../hooks/use-device-theme";
+import { useDeviceTheme } from "../../../../_utils/hooks/use-device-theme";
 import styles from "./styles.module.css";
 
-export var ThemeToggle = () => {
-  var theme = useDeviceTheme();
+export const ThemeToggle = () => {
+  const theme = useDeviceTheme();
 
   return (
     <button

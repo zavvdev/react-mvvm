@@ -3,13 +3,13 @@ import { createContext, createElement, useContext } from "react";
 type Props = Record<string, unknown>;
 type DefaultProps = Record<string, never>;
 
-export var createDependencyContext = <D>() => {
+export const createDependencyContext = <D>() => {
   type DKey = keyof D;
 
-  var DependenciesContext = createContext<D | null>(null);
+  const DependenciesContext = createContext<D | null>(null);
 
-  var useDeps = () => {
-    var deps = useContext(DependenciesContext);
+  const useDeps = () => {
+    const deps = useContext(DependenciesContext);
 
     if (!deps) {
       throw new Error("Dependencies not provided");
@@ -18,13 +18,13 @@ export var createDependencyContext = <D>() => {
     return deps;
   };
 
-  var inject =
+  const inject =
     <K extends DKey, P = DefaultProps>(...keys: K[]) =>
     <R>(fn: (deps: P & Pick<D, K>) => R) =>
     (args?: P): R => {
-      var deps = useDeps();
+      const deps = useDeps();
 
-      var injections = keys.reduce(
+      const injections = keys.reduce(
         (acc, key) => {
           acc[key] = deps[key];
           return acc;
@@ -38,13 +38,13 @@ export var createDependencyContext = <D>() => {
       });
     };
 
-  var withInjections =
+  const withInjections =
     <K extends DKey, P extends Props = DefaultProps>(...keys: K[]) =>
     (Component: React.FC<P & Pick<D, K>>) =>
     (props: P) => {
-      var deps = useDeps();
+      const deps = useDeps();
 
-      var injections = keys.reduce(
+      const injections = keys.reduce(
         (acc, key) => {
           acc[key] = deps[key];
           return acc;
@@ -63,7 +63,7 @@ export var createDependencyContext = <D>() => {
   };
 };
 
-export var createWithInstance =
+export const createWithInstance =
   <K extends string>(propName: K) =>
   <I, P extends Props = DefaultProps>(factory: () => I) =>
   (Component: React.FC<P & Record<K, I>>) =>

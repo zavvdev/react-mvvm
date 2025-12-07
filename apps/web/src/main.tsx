@@ -3,7 +3,7 @@ import { Application } from "@/application/application.view";
 import { bootstrap } from "@/application/bootstrap";
 import { Crash } from "@/modules/crash/_gateway/output";
 
-var appRootElement = document.getElementById("root")!;
-var render = (app: React.ReactNode) => createRoot(appRootElement).render(app);
+const appRootElement = document.getElementById("root")!;
+const render = (app: React.ReactNode) => createRoot(appRootElement).render(app);
 
 bootstrap(render)(Application, Crash)(import.meta.env);

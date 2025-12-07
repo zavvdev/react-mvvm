@@ -1,7 +1,7 @@
 :root {
   --c-bg: #ffffff;
   --c-text: #000000;
-  --c-error: #d93025;
+  --c-error: #ca4e43;
 
   --link-c-text: #1a0dab;
 
@@ -15,7 +15,6 @@
   & body.dark {
     --c-bg: #0e161c;
     --c-text: #ffffff;
-    --c-error: #f28b82;
 
     --link-c-text: #8ab4f8;
 

@@ -1,15 +1,15 @@
 import { createApi, createHttp } from "@react-mvvm/infrastructure";
-import { createConfig } from "./config";
-import { type CoreDependencies, envSchema } from "./types";
+import { createConfig } from "@/core/config";
+import { type CoreDependencies, envSchema } from "@/core/types";
 
-export var registerCoreDependencies = (env: unknown): CoreDependencies => {
-  var config = createConfig(envSchema.parse(env));
+export const registerCoreDependencies = (env: unknown): CoreDependencies => {
+  const config = createConfig(envSchema.parse(env));
 
-  var http = createHttp({
+  const http = createHttp({
     baseUrl: config.apiUrl,
   });
 
-  var api = createApi(http);
+  const api = createApi(http);
 
   return {
     config,

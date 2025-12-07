@@ -7,7 +7,7 @@ import {
   getAllDto,
 } from "./schemas";
 
-export var createPostsApi = (http: Http) => ({
+export const createPostsApi = (http: Http) => ({
   getAll$: () =>
     from(http.get$<GetAllDto["Response"]>("/posts")).pipe(
       mergeMap((response) => from(getAllDto.response.parseAsync(response))),

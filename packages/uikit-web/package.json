@@ -11,6 +11,13 @@
     "./styles.css": {
       "import": "./dist/assets/main.css"
     },
+    "./atoms/error-tile": {
+      "import": "./dist/atoms/error-tile/index.js",
+      "types": "./dist/atoms/error-tile/index.d.ts"
+    },
+    "./atoms/error-tile/types": {
+      "import": "./dist/atoms/error-tile/types.d.ts"
+    },
     "./templates/main-template": {
       "import": "./dist/templates/main-template/index.js",
       "types": "./dist/templates/main-template/index.d.ts"

@@ -1,3 +1,3 @@
-export var Counter = () => {
+export const Counter = () => {
   return <div>Counter View</div>;
 };

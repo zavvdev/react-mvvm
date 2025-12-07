@@ -1,10 +1,10 @@
 import { z as t } from "zod";
 import { makeModel } from "../utils";
 
-var schema = t
+const schema = t
   .object({
-    id: t.string(),
-    userId: t.string(),
+    id: t.number(),
+    userId: t.number(),
     title: t.string(),
     body: t.string(),
   })
@@ -15,5 +15,5 @@ var schema = t
     },
   }));
 
-export var Post = makeModel(schema);
+export const Post = makeModel(schema);
 export type PostModel = t.infer<typeof Post.schema>;

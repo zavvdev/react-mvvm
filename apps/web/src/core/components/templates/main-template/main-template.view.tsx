@@ -3,8 +3,8 @@ import type { PropsWithChildren } from "react";
 import { useNavigate } from "react-router";
 import { PUBLIC_ROUTES } from "@/routes";
 
-export var MainTemplate = ({ children }: PropsWithChildren) => {
-  var navigate = useNavigate();
+export const MainTemplate = ({ children }: PropsWithChildren) => {
+  const navigate = useNavigate();
 
   return (
     <MainTemplate_

@@ -1,5 +1,5 @@
 .root {
-  --color: #658ca9;
+  --c-tile-bg: #658ca9;
 
   background-color: transparent;
   width: 20px;
@@ -9,7 +9,7 @@
   padding: 0;
 
   span {
-    background-color: var(--color);
+    background-color: var(--c-tile-bg);
     height: 2px;
     width: 100%;
     display: block;
@@ -18,5 +18,5 @@
 }
 
 :global(body.dark) .root {
-  --color: #7e92a1;
+  --c-tile-bg: #7e92a1;
 }
