@@ -1,6 +1,6 @@
 import { createApi, createHttp } from "@react-mvvm/infrastructure";
-import { createConfig } from "@/application/config";
-import { type CoreDependencies, envSchema } from "@/application/types";
+import { createConfig } from "@/core/config";
+import { type CoreDependencies, envSchema } from "@/core/types";
 
 export const useApplicationViewModel = (env: unknown): CoreDependencies => {
   const config = createConfig(envSchema.parse(env));

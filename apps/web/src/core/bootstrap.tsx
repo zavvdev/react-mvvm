@@ -1,4 +1,4 @@
-import { errorTracker } from "@/application/services/error-tracker.service";
+import { errorTracker } from "@/application/infrastructure/services/error-tracker.service";
 import { ErrorBoundaryView } from "@/application/ui/views/error-boundary.view";
 
 type RenderFunction = (children: React.ReactNode) => any | Promise<any>;
