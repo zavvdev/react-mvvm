@@ -18,6 +18,13 @@
     "./atoms/error-tile/types": {
       "import": "./dist/atoms/error-tile/types.d.ts"
     },
+    "./atoms/loading": {
+      "import": "./dist/atoms/loading/index.js",
+      "types": "./dist/atoms/loading/index.d.ts"
+    },
+    "./atoms/loading/types": {
+      "import": "./dist/atoms/loading/types.d.ts"
+    },
     "./templates/main-template": {
       "import": "./dist/templates/main-template/index.js",
       "types": "./dist/templates/main-template/index.d.ts"

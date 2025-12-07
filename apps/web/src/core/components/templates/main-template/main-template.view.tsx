@@ -15,12 +15,6 @@ export const MainTemplate = ({ children }: PropsWithChildren) => {
           isVisible: true,
           onClick: () => navigate(PUBLIC_ROUTES.posts()),
         },
-        {
-          id: "counter",
-          label: "Counter",
-          isVisible: true,
-          onClick: () => navigate(PUBLIC_ROUTES.counter()),
-        },
       ]}
     >
       {children}

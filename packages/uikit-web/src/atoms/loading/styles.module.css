@@ -1,0 +1,11 @@
+.root {
+  --c-bg: #ececec;
+
+  background-color: var(--c-bg);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+:global(body.dark) .root {
+  --c-bg: #1b262e;
+}

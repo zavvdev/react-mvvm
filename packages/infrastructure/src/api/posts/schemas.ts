@@ -11,14 +11,16 @@ export type GetAllDto = {
   Response: t.infer<typeof getAllDto.response>;
 };
 
-// Delete DTO
+// Get one DTO
 
-export const deleteDto = {
+export const getOneDto = {
   request: t.object({
     id: t.string(),
   }),
+  response: Post.schema,
 };
 
-export type DeleteDto = {
-  Request: t.infer<typeof deleteDto.request>;
+export type GetOneDto = {
+  Request: t.infer<typeof getOneDto.request>;
+  Response: t.infer<typeof getOneDto.response>;
 };

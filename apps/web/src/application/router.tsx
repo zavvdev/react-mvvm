@@ -1,6 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { MainTemplate } from "@/core/components/templates/main-template/main-template.view";
-import { Counter } from "@/modules/counter/_gateway/output";
 import { NotFound } from "@/modules/not-found/_gateway/output";
 import { Post, Posts } from "@/modules/posts/_gateway/output";
 import { PUBLIC_ROUTES } from "@/routes";
@@ -24,10 +23,6 @@ const ROUTES: Array<AppRoute> = [
   {
     path: PUBLIC_ROUTES.post(":id"),
     element: <Post />,
-  },
-  {
-    path: PUBLIC_ROUTES.counter(),
-    element: <Counter />,
   },
   {
     path: "*",

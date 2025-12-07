@@ -5,7 +5,9 @@
   flex-direction: column;
   border-radius: 8px;
   background-color: var(--c-bg);
-  padding: 0 1rem;
+  padding: 0 1rem 1rem 1rem;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 :global(body.dark) .root {

@@ -1,6 +1,6 @@
 import { ErrorBoundary } from "@/application/error-boundary";
 import type { ApplicationProps } from "@/application/types";
-import { registerCoreDependencies } from "@/core/bootstrap";
+import { useCoreDependencies } from "@/core/bootstrap";
 import { errorTracker } from "@/core/services/error-tracker.service";
 
 type RenderFunction = (children: React.ReactNode) => any | Promise<any>;
@@ -15,7 +15,7 @@ export const bootstrap =
     try {
       return render(
         <ErrorBoundary>
-          <App dependencies={registerCoreDependencies(env)} />
+          <App useDependencies={() => useCoreDependencies(env)} />
         </ErrorBoundary>,
       );
     } catch (error) {

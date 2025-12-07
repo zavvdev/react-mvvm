@@ -10,7 +10,6 @@
   "dependencies": {
     "@react-mvvm/domain": "workspace:*",
     "axios": "^1.13.2",
-    "rxjs": "^7.8.2",
     "zod": "^4.1.12"
   },
   "devDependencies": {

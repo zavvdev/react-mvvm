@@ -1,20 +1,20 @@
-import { from, mergeMap } from "rxjs";
 import type { Http } from "../../http";
 import {
-  type DeleteDto,
-  deleteDto,
   type GetAllDto,
+  type GetOneDto,
   getAllDto,
+  getOneDto,
 } from "./schemas";
 
 export const createPostsApi = (http: Http) => ({
-  getAll$: () =>
-    from(http.get$<GetAllDto["Response"]>("/posts")).pipe(
-      mergeMap((response) => from(getAllDto.response.parseAsync(response))),
-    ),
+  getAll: async () => {
+    const res = await http.get<GetAllDto["Response"]>("/posts");
+    return await getAllDto.response.parseAsync(res);
+  },
 
-  delete$: (dto: DeleteDto["Request"]) =>
-    from(deleteDto.request.parseAsync(dto)).pipe(
-      mergeMap((validDto) => http.delete$(`/posts/${validDto.id}`)),
-    ),
+  getOne: async (dto: GetOneDto["Request"]) => {
+    const req = await getOneDto.request.parseAsync(dto);
+    const res = await http.get(`/posts/${req.id}`);
+    return await getOneDto.response.parseAsync(res);
+  },
 });

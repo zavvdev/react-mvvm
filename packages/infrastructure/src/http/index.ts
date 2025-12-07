@@ -6,7 +6,6 @@ import type {
   InternalAxiosRequestConfig,
 } from "axios";
 import axios from "axios";
-import { defer, from, map, type Observable } from "rxjs";
 import type {
   HttpFailure,
   HttpHeaders,
@@ -34,64 +33,68 @@ export class Http {
     return res.data;
   }
 
-  public get$<T = unknown>(
+  public async get<T = unknown>(
     url: string,
     config?: HttpRequestConfig,
-  ): Observable<T> {
-    return defer(() =>
-      from(this.repo.get<T>(url, this.reqConfigAdapter(config))).pipe(
-        map(this.resAdapter.bind(this)),
-      ),
-    );
+  ): Promise<T> {
+    const res = await this.repo.get<T>(url, this.reqConfigAdapter(config));
+    return this.resAdapter(res);
   }
 
-  public post$<T = unknown, R = unknown>(
+  public async post<T = unknown, R = unknown>(
     url: string,
     data?: R,
     config?: HttpRequestConfig,
-  ): Observable<T> {
-    return defer(() =>
-      from(this.repo.post<T>(url, data, this.reqConfigAdapter(config))).pipe(
-        map(this.resAdapter.bind(this)),
-      ),
+  ): Promise<T> {
+    const res = await this.repo.post<T>(
+      url,
+      data,
+      this.reqConfigAdapter(config),
     );
+    return this.resAdapter(res);
   }
 
-  public put$<T = unknown, R = unknown>(
+  public async put<T = unknown, R = unknown>(
     url: string,
     data?: R,
     config?: HttpRequestConfig,
-  ): Observable<T> {
-    return defer(() =>
-      from(this.repo.put<T>(url, data, this.reqConfigAdapter(config))).pipe(
-        map(this.resAdapter.bind(this)),
-      ),
+  ): Promise<T> {
+    const res = await this.repo.put<T>(
+      url,
+      data,
+      this.reqConfigAdapter(config),
     );
+    return this.resAdapter(res);
   }
 
-  public patch$<T = unknown, R = unknown>(
+  public async patch<T = unknown, R = unknown>(
     url: string,
     data?: R,
     config?: HttpRequestConfig,
-  ): Observable<T> {
-    return defer(() =>
-      from(this.repo.patch<T>(url, data, this.reqConfigAdapter(config))).pipe(
-        map(this.resAdapter.bind(this)),
-      ),
+  ): Promise<T> {
+    const res = await this.repo.patch<T>(
+      url,
+      data,
+      this.reqConfigAdapter(config),
     );
+    return this.resAdapter(res);
   }
 
-  public delete$<T = unknown>(
+  public async delete<T = unknown>(
     url: string,
     config?: HttpRequestConfig,
-  ): Observable<T> {
-    return defer(() =>
-      from(this.repo.delete<T>(url, this.reqConfigAdapter(config))).pipe(
-        map(this.resAdapter.bind(this)),
-      ),
-    );
+  ): Promise<T> {
+    const res = await this.repo.delete<T>(url, this.reqConfigAdapter(config));
+    return this.resAdapter(res);
   }
 }
+
+const buildHttpResponse = <R>(res: AxiosResponse): HttpResponse<R> => ({
+  data: res.data,
+  status: res.status,
+  statusText: res.statusText,
+  headers: res.headers as HttpHeaders,
+});
 
 export const createHttp = <R>(config: {
   baseUrl: string;
@@ -108,68 +111,52 @@ export const createHttp = <R>(config: {
   });
 
   client.interceptors.response.use(
-    (res) => {
+    async (res) => {
       if (config.onResponseSuccess) {
-        return config
-          .onResponseSuccess({
-            data: res.data,
-            status: res.status,
-            statusText: res.statusText,
-            headers: res.headers as HttpHeaders,
-          })
-          .then((modified) => {
-            return {
-              ...res,
-              ...modified,
-            } as AxiosResponse<R>;
-          })
-          .catch((err) => Promise.reject(err));
+        const modified = await config.onResponseSuccess(
+          buildHttpResponse<R>(res),
+        );
+        return {
+          ...res,
+          ...modified,
+        } as AxiosResponse<R>;
       }
+
       return res;
     },
-    (error: AxiosError<R>) => {
+    async (error: AxiosError<R>) => {
       if (config.onResponseError) {
-        return config
-          .onResponseError({
-            code: error.code,
-            response: error.response
-              ? {
-                  data: error.response.data,
-                  status: error.response.status,
-                  statusText: error.response.statusText,
-                  headers: error.response.headers as HttpHeaders,
-                }
-              : undefined,
-          })
-          .then((modified) => {
-            return Promise.reject({
-              ...error,
-              ...modified,
-            } as AxiosError<R>);
-          })
-          .catch((err) => Promise.reject(err));
+        const modified = await config.onResponseError({
+          code: error.code,
+          response: error.response
+            ? buildHttpResponse<R>(error.response)
+            : undefined,
+        });
+
+        return Promise.reject({
+          ...error,
+          ...modified,
+        });
       }
+
       return Promise.reject(error);
     },
   );
 
-  client.interceptors.request.use((req) => {
+  client.interceptors.request.use(async (req) => {
     if (config.onRequest) {
-      return config
-        .onRequest({
-          baseUrl: req.baseURL,
-          params: req.params,
-          withCredentials: req.withCredentials,
-          headers: req.headers as HttpHeaders,
-        })
-        .then((modified) => {
-          return {
-            ...req,
-            ...modified,
-          } as InternalAxiosRequestConfig;
-        })
-        .catch((err) => Promise.reject(err));
+      const modified = await config.onRequest({
+        baseUrl: req.baseURL,
+        params: req.params,
+        withCredentials: req.withCredentials,
+        headers: req.headers as HttpHeaders,
+      });
+      return {
+        ...req,
+        ...modified,
+      } as InternalAxiosRequestConfig;
     }
+
     return req;
   });
 

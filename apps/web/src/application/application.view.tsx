@@ -8,16 +8,16 @@ import { DependenciesContext } from "@/core/services/dependency-context.service"
 // Also, you can use this wrapper in your tests to provide mock dependencies
 // if it's easier for you that providing each dependency separately.
 const ApplicationWrapper = ({
-  dependencies,
+  useDependencies,
   children,
 }: ApplicationProps & PropsWithChildren) => (
-  <DependenciesContext.Provider value={dependencies}>
+  <DependenciesContext.Provider value={useDependencies()}>
     {children}
   </DependenciesContext.Provider>
 );
 
-export const Application = ({ dependencies }: ApplicationProps) => (
-  <ApplicationWrapper dependencies={dependencies}>
+export const Application = ({ useDependencies }: ApplicationProps) => (
+  <ApplicationWrapper useDependencies={useDependencies}>
     <Router />
   </ApplicationWrapper>
 );
