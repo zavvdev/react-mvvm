@@ -1,5 +1,17 @@
-import type { CoreDependencies } from "@/core/types";
+import type { Api } from "@react-mvvm/infrastructure";
+import { z as t } from "zod";
 
-export type ApplicationProps = {
-  useDependencies: () => CoreDependencies;
-};
+export const envSchema = t.object({
+  VITE_API_URL: t.url(),
+});
+
+export type Env = t.infer<typeof envSchema>;
+
+export interface Config {
+  apiUrl: string;
+}
+
+export interface CoreDependencies {
+  config: Config;
+  api: Api;
+}

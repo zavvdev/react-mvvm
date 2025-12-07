@@ -1,32 +1,20 @@
-import { ErrorBoundary } from "@/application/error-boundary";
-import type { ApplicationProps } from "@/application/types";
-import { useCoreDependencies } from "@/core/bootstrap";
-import { errorTracker } from "@/core/services/error-tracker.service";
+import { errorTracker } from "@/application/services/error-tracker.service";
+import { ErrorBoundaryView } from "@/application/ui/views/error-boundary.view";
 
 type RenderFunction = (children: React.ReactNode) => any | Promise<any>;
 
 export const bootstrap =
   (render: RenderFunction) =>
-  (
-    App: React.FC<ApplicationProps>,
-    Crash: React.FC<{ error: unknown }> | null,
-  ) =>
-  (env: unknown) => {
+  (renderApplicationView: () => React.ReactNode) => {
     try {
       return render(
-        <ErrorBoundary>
-          <App useDependencies={() => useCoreDependencies(env)} />
-        </ErrorBoundary>,
+        <ErrorBoundaryView>{renderApplicationView()}</ErrorBoundaryView>,
       );
     } catch (error) {
       errorTracker.report({
         location: "bootstrap",
         error,
       });
-
-      if (Crash) {
-        return render(<Crash error={error} />);
-      }
 
       throw error;
     }
