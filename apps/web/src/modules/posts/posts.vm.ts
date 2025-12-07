@@ -15,7 +15,7 @@ const shortenBody = (post: PostModel): PostModel => ({
   body: shortenString(post.body),
 });
 
-const useViewModel = ({ api }: VMDependencies) => {
+export const useViewModel = ({ api }: VMDependencies) => {
   const { 0: posts, 1: setPosts } = useState<PostModel[]>([]);
   const { 0: loading, 1: setLoading } = useState(true);
   const { 0: error, 1: setError } = useState<string>("");
@@ -55,3 +55,4 @@ const useViewModel = ({ api }: VMDependencies) => {
 
 export const postsViewModel = () => inject<"api">("api")(useViewModel);
 export type ViewModel = ReturnType<typeof postsViewModel>;
+export type ViewModelResult = ReturnType<ReturnType<typeof postsViewModel>>;

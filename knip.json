@@ -1,4 +1,4 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
-  "ignoreDependencies": ["lerna"]
+  "ignoreDependencies": ["lerna", "babel-plugin-react-compiler"]
 }

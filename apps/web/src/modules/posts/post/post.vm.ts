@@ -8,7 +8,7 @@ interface VMDependencies {
   api: Api;
 }
 
-const useViewModel = ({ api }: VMDependencies) => {
+export const useViewModel = ({ api }: VMDependencies) => {
   const { 0: post, 1: setPost } = useState<PostModel | null>(null);
   const { 0: loading, 1: setLoading } = useState(true);
   const { 0: error, 1: setError } = useState<string>("");
@@ -47,3 +47,4 @@ const useViewModel = ({ api }: VMDependencies) => {
 
 export const postViewModel = () => inject<"api">("api")(useViewModel);
 export type ViewModel = ReturnType<typeof postViewModel>;
+export type ViewModelResult = ReturnType<ReturnType<typeof postViewModel>>;

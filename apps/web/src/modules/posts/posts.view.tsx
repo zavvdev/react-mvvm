@@ -9,7 +9,7 @@ interface Props {
   useViewModel: ViewModel;
 }
 
-const View = ({ useViewModel }: Props) => {
+export const View = ({ useViewModel }: Props) => {
   const { posts, loading, error, success, onViewPost } = useViewModel();
 
   return (
