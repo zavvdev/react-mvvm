@@ -1,18 +1,7 @@
 {
   "files": [],
   "references": [
-    { "path": "packages/dependency-context" },
-    { "path": "packages/domain" },
-    { "path": "packages/infrastructure" },
-    { "path": "packages/uikit-web" },
-    { "path": "apps/web" }
-  ],
-  "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
-    "skipLibCheck": true,
-    "jsx": "react-jsx"
-  }
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }
