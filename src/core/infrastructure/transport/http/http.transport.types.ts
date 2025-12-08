@@ -10,7 +10,7 @@ export type HttpAllowedRequestHeaders =
   | "Authorization";
 
 export type HttpRequestHeaders = {
-  [key in HttpAllowedRequestHeaders]: HttpHeaderValue | undefined;
+  [key in HttpAllowedRequestHeaders]?: HttpHeaderValue | undefined;
 };
 
 // You can specify specific response headers if needed.
