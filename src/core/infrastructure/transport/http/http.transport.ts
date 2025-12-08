@@ -11,12 +11,12 @@ import type {
   HttpRequestConfig,
   HttpRequestHeaders,
   HttpResponse,
-} from "@/core/infrastructure/transport/http/http.types";
+} from "@/core/infrastructure/transport/http/http.transport.types";
 import {
   buildHttpRequestConfig,
   buildHttpResponse,
   mapHttpRequestHeaders,
-} from "@/core/infrastructure/transport/http/http.utilities";
+} from "@/core/infrastructure/transport/http/http.transport.utilities";
 
 export class Http {
   private readonly repo: AxiosInstance;

@@ -1,5 +1,11 @@
-import type { Config, Env } from "@/core/infrastructure/types";
+import { ENV } from "@/core/infrastructure/env";
 
-export const createConfig = (env: Env): Config => ({
-  apiUrl: env.VITE_API_URL,
-});
+export const CONFIG = {
+  apiUrl: ENV.VITE_API_URL,
+  isErrorTrackerEnabled: ENV.VITE_ENABLE_ERROR_TRACKER,
+  cacheTime: {
+    lvl1: 3000,
+  },
+};
+
+export type Config = typeof CONFIG;

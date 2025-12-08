@@ -8,7 +8,7 @@ import type {
   HttpRequestHeaders,
   HttpRequestConfig,
   HttpResponse,
-} from "@/core/infrastructure/transport/http/http.types";
+} from "@/core/infrastructure/transport/http/http.transport.types";
 
 export function mapHttpRequestHeaders(
   headers: HttpRequestHeaders | AxiosRequestHeaders,

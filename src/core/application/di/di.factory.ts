@@ -3,7 +3,7 @@ import { createContext, createElement, useContext } from "react";
 type Props = Record<string, unknown>;
 type DefaultProps = Record<string, never>;
 
-function createDependencyContext<D>() {
+export function createDependencyInjectionContext<D>() {
   type DKey = keyof D;
 
   const DependenciesContext = createContext<D | null>(null);
@@ -55,26 +55,22 @@ function createDependencyContext<D>() {
       return createElement(Component, { ...injections, ...props });
     };
 
+  const createWithInstance =
+    <K extends string>(propName: K) =>
+    <I, P extends Props = DefaultProps>(factory: () => I) =>
+    (Component: React.FC<P & Record<K, I>>) =>
+    (props: P) => {
+      return createElement(Component, {
+        ...props,
+        [propName]: factory(),
+      } as P & Record<K, I>);
+    };
+
   return {
     DependenciesContext,
     useDeps,
     inject,
     withInjections,
+    createWithInstance,
   };
 }
-
-const createWithInstance =
-  <K extends string>(propName: K) =>
-  <I, P extends Props = DefaultProps>(factory: () => I) =>
-  (Component: React.FC<P & Record<K, I>>) =>
-  (props: P) => {
-    return createElement(Component, {
-      ...props,
-      [propName]: factory(),
-    } as P & Record<K, I>);
-  };
-
-export const { DependenciesContext, inject } =
-  createDependencyContext<CoreDependencies>();
-
-export const withVM = createWithInstance("useViewModel");

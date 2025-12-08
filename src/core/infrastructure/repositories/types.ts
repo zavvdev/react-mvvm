@@ -1,4 +1,5 @@
 import { z as t, ZodType } from "zod";
+import type { CommonRepository } from "./common/common.repository";
 
 // If your server returns a specific response format, you can create a reusable schema for it here
 // and use it across your repository response schemas.
