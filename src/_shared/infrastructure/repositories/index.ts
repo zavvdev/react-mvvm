@@ -1,5 +1,5 @@
 import type { CommonRepository } from "@/_shared/infrastructure/repositories/common/common.repository";
 
-export interface Repositories {
+export interface SharedRepositories {
   common: CommonRepository;
 }

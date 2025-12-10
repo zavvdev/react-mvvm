@@ -1,0 +1,7 @@
+{
+  "book_item": {
+    "author": "by {{author}}",
+    "add_to_cart": "Add to cart",
+    "already_in_cart": "✔️ In cart"
+  }
+}

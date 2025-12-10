@@ -7,6 +7,5 @@ export const FALLBACK_LNG = LANGUAGES.en;
 export const NAMESPACES = {
   shared: "_shared",
   books: "books",
-  cart: "cart",
   order: "order",
-};
+} as const;

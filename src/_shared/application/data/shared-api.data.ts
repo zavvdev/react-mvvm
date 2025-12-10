@@ -1,5 +1,5 @@
 import { CONFIG } from "@/_shared/infrastructure/config";
-import type { Repositories } from "@/_shared/infrastructure/repositories";
+import type { SharedRepositories } from "@/_shared/infrastructure/repositories";
 import { CommonRepository } from "@/_shared/infrastructure/repositories/common/common.repository";
 import { createHttp } from "@/_shared/infrastructure/transport/http/http.transport";
 
@@ -22,6 +22,6 @@ export const http = createHttp({
   },
 });
 
-export const api: Repositories = {
+export const sharedApi: SharedRepositories = {
   common: new CommonRepository(http),
 };

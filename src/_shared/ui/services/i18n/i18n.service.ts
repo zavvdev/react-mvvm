@@ -29,7 +29,7 @@ use(initReactI18next);
 use(
   resourcesToBackend(
     (language: string, namespace: string) =>
-      import(`../../../../${namespace}/services/i18n/${language}.json`),
+      import(`../../../../${namespace}/ui/services/i18n/${language}.json`),
   ),
 );
 
@@ -44,10 +44,10 @@ init({
   ns: Object.values(NAMESPACES),
 });
 
-export function createUseTranslation(namespace: string) {
+export function createUseTranslation(namespace: keyof typeof NAMESPACES) {
   return (options?: UseTranslationOptions<string>) => {
     return useTranslation(namespace, options);
   };
 }
 
-export const useSharedTranslation = createUseTranslation(NAMESPACES.shared);
+export const useSharedTranslation = createUseTranslation("shared");

@@ -1,10 +1,12 @@
-import type { SharedDependencies } from "@/_shared/application/di/di.types";
-import { api } from "@/_shared/application/data/api.data";
-import { queryClientService } from "@/_shared/application/services/query-client/query-client.service";
+import type { SharedDiDependencies } from "@/_shared/application/di/di.types";
+import { sharedApi } from "@/_shared/application/data/shared-api.data";
+import { signalService } from "@/_shared/application/services/signal/signal.service";
+import { querySignalService } from "@/_shared/application/services/query-signal/query-signal.service";
 
-export function registerSharedDI(): SharedDependencies {
+export function registerSharedDI(): SharedDiDependencies {
   return {
-    api,
-    queryClientService,
+    sharedApi,
+    signalService,
+    querySignalService,
   };
 }

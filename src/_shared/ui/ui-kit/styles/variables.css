@@ -1,9 +1,0 @@
-:root {
-  --c-bg: #ffffff;
-  --c-text: #000000;
-
-  /* & body.dark { */
-  /*   Redefine variables for dark mode.
-   *   Then you can add 'dark' class to body element to switch to dark mode
-  /* } */
-}

@@ -1,0 +1,22 @@
+:root {
+  --c-primary: #d4802a;
+  --c-primary-dark: #b5712b;
+  --c-primary-light: #e5994c;
+
+  --c-gray-light: #dcdcdc;
+  --c-gray-dark: #4b4b4b;
+
+  --c-black: #292929;
+  --c-black-light: #6d6d6d;
+
+  --c-white: #ffffff;
+  --c-white-dim: #fafafa;
+
+  --c-red: #f23f3f;
+  --c-red-dim: #f28f8f;
+
+  /* & body.dark { */
+  /*   Redefine variables for dark mode.
+   *   Then you can add 'dark' class to body element to switch to dark mode
+  /* } */
+}

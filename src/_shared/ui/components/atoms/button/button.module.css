@@ -1,0 +1,26 @@
+.root {
+  background-color: var(--c-primary);
+  border: none;
+  color: var(--c-white);
+  padding: 5px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 2px;
+  cursor: pointer;
+  user-select: none;
+  width: max-content;
+
+  &:hover {
+    background-color: var(--c-primary-dark);
+  }
+}
+
+.rootFullWidth {
+  width: 100%;
+}
+
+.disabled {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.8;
+}
