@@ -1,8 +1,8 @@
-import type { DiDependencies } from "@/application/di/di.types";
+import type { DiContainer } from "@/application/di/di.types";
 import { createDependencyInjectionContext } from "@/application/di/di.factory";
 
 const { DependenciesContext, inject, withInjections, createWithInstance } =
-  createDependencyInjectionContext<DiDependencies>();
+  createDependencyInjectionContext<DiContainer>();
 
 export const DI = {
   Provider: DependenciesContext.Provider,

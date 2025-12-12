@@ -1,12 +1,16 @@
-import type { DiDependencies } from "@/application/di/di.types";
-import { api } from "@/application/data/api.data";
+import { repositories } from "@/infrastructure/repositories";
+import type { DiContainer } from "@/application/di/di.types";
 import { signalService } from "@/application/services/signal/signal.service";
 import { querySignalService } from "@/application/services/query-signal/query-signal.service";
+import { cartUseCase } from "@/application/use-cases/cart";
+import { booksUseCase } from "@/application/use-cases/books";
 
-export function registerDI(): DiDependencies {
+export function registerDiContainer(): DiContainer {
   return {
-    api,
+    repositories,
     signalService,
     querySignalService,
+    cartUseCase,
+    booksUseCase,
   };
 }

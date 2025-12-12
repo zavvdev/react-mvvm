@@ -1,16 +1,12 @@
-import {
-  QueryClientProvider,
-  QueryClient,
-  useQuery,
-  useMutation,
-  useInfiniteQuery,
-} from "@tanstack/react-query";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { atomWithQuery, atomWithMutation } from "jotai-tanstack-query";
 import { CONFIG } from "@/infrastructure/config";
 
 export const querySignalClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: CONFIG.cacheTime.lvl1,
+      retry: 0,
     },
   },
 });
@@ -20,9 +16,15 @@ export type QuerySignalClient = QueryClient;
 
 export const querySignalService = {
   querySignalClient,
-  useQuerySignal: useQuery,
-  useMutationSignal: useMutation,
-  useInfiniteQuerySignal: useInfiniteQuery,
+
+  createQuerySignal: ((options: Parameters<typeof atomWithQuery>[0]) =>
+    atomWithQuery(options, () => querySignalClient)) as typeof atomWithQuery,
+
+  createMutationSignal: ((options: Parameters<typeof atomWithMutation>[0]) =>
+    atomWithMutation(
+      options,
+      () => querySignalClient,
+    )) as typeof atomWithMutation,
 };
 
 export type QuerySignalService = typeof querySignalService;
