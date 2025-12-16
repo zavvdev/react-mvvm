@@ -1,0 +1,44 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--gray-dark);
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 500px) {
+    display: block;
+  }
+}
+
+.cover {
+  height: 90px;
+  margin-right: 16px;
+
+  @media screen and (max-width: 500px) {
+    margin-bottom: 8px;
+  }
+}
+
+.title {
+  font-size: 15px;
+  margin: 0 0 5px 0;
+}
+
+.removeBtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  height: 40px;
+  min-width: 50px;
+}
+
+.price {
+  font-weight: bold;
+  margin-top: 8px;
+}

@@ -1,0 +1,35 @@
+.root {
+  display: flex;
+  margin-bottom: 26px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--c-gray-dark);
+
+  @media screen and (max-width: 500px) {
+    display: block;
+  }
+}
+
+.cover {
+  height: 210px;
+  margin-right: 16px;
+  margin-bottom: 10px;
+}
+
+.title {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.infoWrap {
+  margin-bottom: 16px;
+}
+
+.price {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.addToCartBtn {
+  margin-top: 16px;
+}

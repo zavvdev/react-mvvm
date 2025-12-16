@@ -1,0 +1,21 @@
+.root {
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-color: var(--c-black);
+  padding: 0 5%;
+  color: var(--c-white);
+
+  a {
+    color: inherit;
+  }
+}
+
+.inner {
+  max-width: 500px;
+  margin: 0 auto;
+  padding-bottom: 200px;
+}
+
+.content {
+  padding-top: 36px;
+}

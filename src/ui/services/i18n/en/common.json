@@ -1,0 +1,25 @@
+{
+  "app_name": "Books-Shmuks",
+
+  "errors": {
+    "unexpected": "❌ Something went wrong. Try again later"
+  },
+
+  "labels": {
+    "loading": "👀 Loading..."
+  },
+
+  "app_header": {
+    "cart": "Cart: ({{count}})"
+  },
+
+  "book_item": {
+    "author": "by {{author}}",
+    "add_to_cart": "Add to cart",
+    "already_in_cart": "✔️ In cart"
+  },
+
+  "cart_book": {
+    "remove": "❌"
+  }
+}

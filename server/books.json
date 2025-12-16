@@ -1,0 +1,123 @@
+{
+  "status": "success",
+  "message": "ok",
+  "data": [
+    {
+      "id": 1,
+      "title": "Clean Architecture: A Craftsman's Guide to Software Structure and Design",
+      "author": {
+        "id": 1,
+        "name": "Robert Martin",
+        "popularity": 9.5
+      },
+      "publish_date": "Sep 17, 2017",
+      "price": "$32",
+      "cover_url": "http://localhost:4242/images/1.jpg",
+      "stars": 4.7
+    },
+    {
+      "id": 2,
+      "title": "Clean Code: A Handbook of Agile Software Craftsmanship",
+      "author": {
+        "id": 1,
+        "name": "Robert Martin",
+        "popularity": 9.5
+      },
+      "publish_date": "Aug 11, 2008",
+      "price": "$41",
+      "cover_url": "http://localhost:4242/images/2.jpg",
+      "stars": 4.8
+    },
+    {
+      "id": 3,
+      "title": "Effective TypeScript: 62 Specific Ways to Improve Your TypeScript",
+      "author": {
+        "id": 2,
+        "name": "Dan Vanderkam",
+        "popularity": 8.7
+      },
+      "publish_date": "Nov 12, 2019",
+      "price": "$24",
+      "cover_url": "http://localhost:4242/images/3.jpg",
+      "stars": 4.5
+    },
+    {
+      "id": 4,
+      "title": "JavaScript: The Definitive Guide: Master the World's Most-Used Programming Language",
+      "author": {
+        "id": 3,
+        "name": "David Flanagan",
+        "popularity": 8.9
+      },
+      "publish_date": "Jun 23, 2020",
+      "price": "$29",
+      "cover_url": "http://localhost:4242/images/4.jpg",
+      "stars": 4.6
+    },
+    {
+      "id": 5,
+      "title": "Programming in Haskell",
+      "author": {
+        "id": 4,
+        "name": "Graham Hutton",
+        "popularity": 7.8
+      },
+      "publish_date": "Sep 1, 2016",
+      "price": "$37",
+      "cover_url": "http://localhost:4242/images/5.jpg",
+      "stars": 4.4
+    },
+    {
+      "id": 6,
+      "title": "Real World Haskell",
+      "author": {
+        "id": 5,
+        "name": "Bryan O'Sullivan, John Goerzen, Don Stewart",
+        "popularity": 7.5
+      },
+      "publish_date": "Dec 1, 2008",
+      "price": "$28",
+      "cover_url": "http://localhost:4242/images/6.jpg",
+      "stars": 4.3
+    },
+    {
+      "id": 7,
+      "title": "Building Microservices: Designing Fine-Grained Systems",
+      "author": {
+        "id": 6,
+        "name": "Sam Newman",
+        "popularity": 8.3
+      },
+      "publish_date": "Sep 28, 2021",
+      "price": "$46",
+      "cover_url": "http://localhost:4242/images/7.jpg",
+      "stars": 4.6
+    },
+    {
+      "id": 8,
+      "title": "Python Crash Course, 2nd Edition: A Hands-On, Project-Based Introduction to Programming",
+      "author": {
+        "id": 7,
+        "name": "Eric Matthes",
+        "popularity": 9.0
+      },
+      "publish_date": "May 3, 2019",
+      "price": "$23",
+      "cover_url": "http://localhost:4242/images/8.jpg",
+      "stars": 4.7
+    },
+    {
+      "id": 9,
+      "title": "Learning Redux: Write maintainable, consistent, and easy-to-test web applications",
+      "author": {
+        "id": 8,
+        "name": "Daniel Bugl",
+        "popularity": 7.9
+      },
+      "publish_date": "Aug 31, 2017",
+      "price": "$31",
+      "cover_url": "http://localhost:4242/images/9.jpg",
+      "stars": 4.2
+    }
+  ]
+}

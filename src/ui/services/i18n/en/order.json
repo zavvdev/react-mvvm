@@ -1,0 +1,10 @@
+{
+  "submit": "Order",
+  "submitting": "Ordering...",
+  "email": "Email",
+  "empty": "🤥 Nothing to order",
+  "select_books": "← Select books",
+  "order_error": "😑 Unable to perform order. Try again later",
+  "order_success": "🥳 Successfully ordered!",
+  "invalid_email": "😑 Invalid email address"
+}

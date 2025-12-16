@@ -1,0 +1,28 @@
+.input {
+  padding: 5px 10px;
+  border: 1px solid var(--c-gray-dark);
+  border-radius: 2px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: var(--c-black);
+  color: var(--white-dim);
+  font-size: 15px;
+
+  &:focus {
+    border: 1px solid var(--c-primary);
+  }
+}
+
+.inputError {
+  border: 1px solid var(--c-red);
+
+  &::placeholder {
+    color: var(--c-red);
+  }
+}
+
+.error {
+  color: var(--c-red);
+  font-size: 11px;
+  margin-top: 3px;
+}
