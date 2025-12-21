@@ -23,7 +23,7 @@ function View({ useViewModel }: Props) {
     isSuccess,
     isCartEmpty,
     bookTitlesToOrder,
-  } = useViewModel();
+  } = useViewModel({ somethingElse: 42 });
 
   return (
     <div>
@@ -62,4 +62,5 @@ function View({ useViewModel }: Props) {
   );
 }
 
-export const OrderView = DI.withVM<OrderViewModel>(orderViewModel)(View);
+// You can skip ViewModel generic here if no custom props are needed for View
+export const OrderView = DI.withVM(orderViewModel)(View);

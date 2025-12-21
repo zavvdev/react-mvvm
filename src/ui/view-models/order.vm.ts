@@ -5,12 +5,20 @@ import type { CartUseCase } from "@/application/use-cases/cart.use-case";
 import type { OrderUseCase } from "@/application/use-cases/order.use-case";
 import { useTranslation } from "@/ui/services/i18n/i18n.service";
 
-interface Arguments {
+interface Injections {
   orderUseCase: OrderUseCase;
   cartUseCase: CartUseCase;
 }
 
-const useOrderViewModel = ({ orderUseCase, cartUseCase }: Arguments) => {
+interface Props {
+  somethingElse: number;
+}
+
+const useOrderViewModel = ({
+  orderUseCase,
+  cartUseCase,
+  somethingElse,
+}: Injections & Props) => {
   const { createOrder, isLoading, isError, isSuccess } =
     orderUseCase.useOrder();
 
@@ -22,6 +30,7 @@ const useOrderViewModel = ({ orderUseCase, cartUseCase }: Arguments) => {
   const onCreateOrder = () => {
     if (!type.email().safeParse(email).success) {
       alert(t("invalid_email"));
+      console.log(somethingElse);
       return;
     }
 
@@ -40,8 +49,10 @@ const useOrderViewModel = ({ orderUseCase, cartUseCase }: Arguments) => {
   };
 };
 
+// You need to specify dependencies union type if you want to add custom arguments
+// into the hook that is an injection target
 export const orderViewModel = () =>
-  DI.inject<"orderUseCase" | "cartUseCase">(
+  DI.inject<"orderUseCase" | "cartUseCase", Props>(
     "orderUseCase",
     "cartUseCase",
   )(useOrderViewModel);

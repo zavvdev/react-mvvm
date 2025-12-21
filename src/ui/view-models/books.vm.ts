@@ -3,7 +3,7 @@ import type { BooksQuerySignal } from "@/application/services/query-signal/queri
 import type { SignalService } from "@/application/services/signal/signal.service";
 import type { CartUseCase } from "@/application/use-cases/cart.use-case";
 
-interface Arguments {
+interface Injections {
   signalService: SignalService;
   booksQuerySignal: BooksQuerySignal;
   cartUseCase: CartUseCase;
@@ -13,7 +13,7 @@ const useBooksViewModel = ({
   signalService,
   booksQuerySignal,
   cartUseCase,
-}: Arguments) => {
+}: Injections) => {
   const [{ data, isError, isLoading }] =
     signalService.useSignal(booksQuerySignal);
 
@@ -30,8 +30,9 @@ const useBooksViewModel = ({
   };
 };
 
+// You can skip generic union type (injections) here if no custom arguments are needed for ViewModel
 export const booksViewModel = () =>
-  DI.inject<"signalService" | "booksQuerySignal" | "cartUseCase">(
+  DI.inject(
     "signalService",
     "booksQuerySignal",
     "cartUseCase",

@@ -38,4 +38,5 @@ function View({ useViewModel }: Props) {
   );
 }
 
-export const BooksView = DI.withVM<BooksViewModel>(booksViewModel)(View);
+// You can skip ViewModel generic here if no custom props are needed for View
+export const BooksView = DI.withVM(booksViewModel)(View);
