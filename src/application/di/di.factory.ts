@@ -27,28 +27,28 @@ export function createDependencyInjectionContext<D extends DependencyMap>() {
 
   const inject =
     <K extends DKey, P = void>(...keys: K[]) =>
-      <R>(fn: (deps: P & Pick<D, K>) => R) =>
-        (args: P): R =>
-          fn({
-            ...useDeps(keys),
-            ...args,
-          });
+    <R>(fn: (deps: P & Pick<D, K>) => R) =>
+    (args: P): R =>
+      fn({
+        ...useDeps(keys),
+        ...args,
+      });
 
   const withInjections =
     <K extends DKey, P extends Props = DefaultProps>(...keys: K[]) =>
-      (Component: React.FC<P & Pick<D, K>>) =>
-        (props: P) =>
-          createElement(Component, { ...useDeps(keys), ...props });
+    (Component: React.FC<P & Pick<D, K>>) =>
+    (props: P) =>
+      createElement(Component, { ...useDeps(keys), ...props });
 
   const createWithInstance =
     <K extends string>(propName: K) =>
-      <I, P extends Props = DefaultProps>(factory: () => I) =>
-        (Component: React.FC<P & Record<K, I>>) =>
-          (props: P) =>
-            createElement(Component, {
-              ...props,
-              [propName]: factory(),
-            } as P & Record<K, I>);
+    <I, P extends Props = DefaultProps>(factory: () => I) =>
+    (Component: React.FC<P & Record<K, I>>) =>
+    (props: P) =>
+      createElement(Component, {
+        ...props,
+        [propName]: factory(),
+      } as P & Record<K, I>);
 
   return {
     DependenciesContext,
